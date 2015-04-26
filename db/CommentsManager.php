@@ -62,7 +62,7 @@ class CommentsManager {
      * @return Comment
      */
     public function findOne(array $query = array()) {
-        return $this->_db->comments->findOne($query);
+        return new Comment($this->_db->comments->findOne($query));
     }
 
     /** Convert a MongoCursor of comments to an array of Comments,

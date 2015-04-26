@@ -80,10 +80,10 @@ class FractalsManager {
     /**
      * Find one fractal
      * @param array $query
-     * @return User
+     * @return Fractal
      */
     public function findOne(array $query = array()) {
-        return $this->_db->fractals->findOne($query);
+        return new Fractal($this->_db->fractals->findOne($query));
     }
 
     /**
