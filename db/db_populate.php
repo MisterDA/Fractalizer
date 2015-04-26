@@ -11,7 +11,7 @@ srand((double)microtime()*1000000);
 
 /**
  * Generate a random string
- * @param int n String length
+ * @param int $n String length
  * @return string Random string
  */
 function randstr($n) {
@@ -25,15 +25,15 @@ function randstr($n) {
 
 /**
  * Populate the database for testing purposes
- * TODO: support up votes and down votes
- * @param MongoCollection users Users collection
- * @param MongoCollection fractals Fractals collection
- * @param Mongocollection comments Comments collection
+ * @todo Set up votes and down votes
+ * @param MongoCollection $users Users collection
+ * @param MongoCollection $fractals Fractals collection
+ * @param Mongocollection $comments Comments collection
  */
 function populateWithDocuments($users, $fractals, $comments) {
     for ($i = 0, $n = 20; $i < $n; $i++) {
         $users->insert(array(
-            "username"  => randstr(7),
+            "name"  => randstr(7),
             "email"     => randstr(7)."@".randstr(5),
             "password"  => randstr(9),
             "upvoted"   => array(),
