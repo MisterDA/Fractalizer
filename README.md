@@ -27,3 +27,6 @@ $uf = new FractalsManager($db);
 $fractals = $uf->hydrate($uf->find());
 ```
 
+## Documentation
+Documentation for the php classes used by the database connection is located in the `doc` folder.
+
