@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Populate the database
+ */
+
 require_once("db_connect.php");
 
 $users = $db->users;
@@ -28,7 +32,7 @@ function randstr($n) {
  * @todo Set up votes and down votes
  * @param MongoCollection $users Users collection
  * @param MongoCollection $fractals Fractals collection
- * @param Mongocollection $comments Comments collection
+ * @param MongoCollection $comments Comments collection
  */
 function populateWithDocuments($users, $fractals, $comments) {
     for ($i = 0, $n = 20; $i < $n; $i++) {
