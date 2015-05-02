@@ -114,7 +114,99 @@ class UsersManager {
             "_id" => $user->id()), array('$set', $user->dehydrate()));
     }
 
+    const ERR_REGISTER_NAME = 0;
+    const ERR_REGISTER_NAME_FOUND = 1;
+    const ERR_REGISTER_EMAIL = 2;
+    const ERR_REGISTER_EMAIL_FOUND = 3;
+    const ERR_REGISTER_PASSWORD = 4;
 
+    /**
+     * Register an user
+     * @param User $user
+     * @return array Errors
+     */
+    public function register(User $user) {
+        $errors = array();
+
+        if ($user->name() != NULL) {
+            if ($this->findOne(array("name" => $user->name())) != NULL) {
+                array_push($errors, UsersManager::ERR_REGISTER_NAME_FOUND);
+            }
+        } else {
+            array_push($errors, UsersManager::ERR_REGISTER_NAME);
+        }
+
+        if ($user->email() != NULL) {
+            if ($this->findOne(array("email" => $user->email())) != NULL) {
+                array_push($errors, UsersManager::ERR_REGISTER_EMAIL_FOUND);
+            }
+        } else {
+            array_push($errors, UsersManager::ERR_REGISTER_EMAIL);
+        }
+
+        if ($user->password() != NULL) {
+            $pwd = User::hashPassword($user->password);
+            if ($pwd != NULL)
+                $user->setPassword($pwd);
+            else
+                array_push($errors, UsersManager::ERR_REGISTER_PASSWORD);
+        }
+
+        if (count($errors) == 0)
+            $this->add($user);
+        else
+            return $errors;
+    }
+
+
+    /**
+     * Log in an user, set $_SESSION["user"] to the $user object if success
+     * @param User $user
+     * @return boolean true if success
+     */
+    public function login(User $user) {
+        if ($user->name() != NULL || $user->email() != NULL) {
+            $u = new User($this->findOne(array(
+                '$or' => array(
+                    array("name"  => $user->name()),
+                    array("email" => $user->email())
+                ))));
+            if ($u != NULL) {
+                $user->setPassword(User::hashPassword($user->password()));
+                if ($u->password() == $user->password()) {
+                    $this->logout();
+                    $_SESSION["user"] = $user;
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Log out the connected user
+     */
+    public function logout() {
+        if ($this->hasLoggedInUser())
+            unset($_SESSION["user"]);
+    }
+
+    /**
+     * Logged user
+     * @return User
+     */
+    public function loggedUser() {
+        if ($this->hasLoggedInUser());
+            return $_SESSION["user"];
+    }
+
+    /**
+     * Has a logged in user
+     * @return boolean true if has a logged in user
+     */
+    public function hasLoggedInUser() {
+        return isset($_SESSION["user"]);
+    }
 }
 
 

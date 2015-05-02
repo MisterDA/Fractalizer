@@ -164,12 +164,11 @@ class User {
     /**
      * Hash password
      * @param string $password Clear text password
+     * @return string Hashed password
      */
     public static function hashPassword($password) {
         if (is_string($password) && strlen($password) >= 3 && strlen($password) <= 20)
             return password_hash($password, PASSWORD_DEFAULT);
-        else
-            return "";
     }
 
     /**
