@@ -30,11 +30,14 @@
             </tr>
         </table>
         <form>
-            <label>Title : <input type="title" name="title"></label>
-            <label>Iter :  <input type="number" name="iter" min="0"></label>
-            <label>Axiom : <input type="text"   name="axiom"></label>
-            <label id="rules">Rules : <input type="text" name="rule[]"></label>
-            <button id="addRuleButton">+</button>
+            <label>Title : <input type="title"  name="title"></label>
+            <label>Iter :  <input type="number" name="iter"  id="iter"  min="0" value="0"></label>
+            <label>Axiom : <input type="text"   name="axiom" id="axiom"></label>
+            <label>Angle (deg): <input type="number" name="angle" id="angle" min="0" max="360" value="0"></label>
+            <label id="rules">
+                Rules : <input type="text" name="rule[]">
+                <button id="addRuleButton">+</button>
+            </label>
             <button id="drawButton">Draw</button>
             <input type="submit" value="Post">
         </form>
@@ -46,3 +49,4 @@
         <script src="../assets/js/fractalize.js"></script>
     </body>
 </html>
+

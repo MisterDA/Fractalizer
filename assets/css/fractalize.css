@@ -1,0 +1,10 @@
+label {
+    display: block;
+}
+#rules input {
+    display: block;
+}
+#rules input:nth-last-child(2), #addRuleButton {
+    display: inline;
+}
+
