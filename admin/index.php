@@ -17,6 +17,7 @@ $fractals = $uf->hydrate($uf->find());
     <title>Administration</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./admin.css">
 </head>
 
 <body data-spy="scroll" data-target="#navbar">
@@ -78,7 +79,7 @@ foreach ($users as $u) {
 
 <div class="row">
     <section class="col-md-8" id="fractals">
-        <div class="page-header" id="users">
+        <div class="page-header">
             <h2>Fractals <small>Draw them</small></h2>
         </div>
         <table class="table table-striped table-bordered table-hover table-condensed">
@@ -89,13 +90,15 @@ foreach ($users as $u) {
                     <th>Author</th>
                     <th>Date</th>
                     <th>Votes</th>
+                    <th>Formula</th>
                 </tr>
             </thead>
             <tbody>
 <?php
 foreach ($fractals as $f) {
-    echo "<tr id=\"{$f->id()}\"><td>{$f->id()}</td><td>{$f->title()}</td><td>{$f->author()}</td><td>{$f->date('d/m/y H:i')}</td><td>{$f->votes()}</td></tr>";
+    echo "<tr id=\"{$f->id()}\"><td>{$f->id()}</td><td>{$f->title()}</td><td>{$f->author()}</td><td>{$f->date('d/m/y H:i')}</td><td>{$f->votes()}</td><td>{$f->formula()}</td></tr>\n";
 }
+
 ?>
 
             </tbody>
@@ -106,6 +109,7 @@ foreach ($fractals as $f) {
                     <th>Author</th>
                     <th>Date</th>
                     <th>Votes</th>
+                    <th>Formula</th>
                 </tr>
             </tfoot>
         </table>
@@ -115,6 +119,8 @@ foreach ($fractals as $f) {
 </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="../assets/js/l-system.js"></script>
+    <script src="./admin.js"></script>
 </body>
 </html>
 

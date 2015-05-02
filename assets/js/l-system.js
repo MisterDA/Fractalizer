@@ -122,6 +122,13 @@ function Curve(axiom, rules, turtle) {
     this.rules  = rules;
     this.turtle = turtle;
 
+    this.fromJSON = function(str) {
+        var obj = $.parseJSON(str);
+        this.axiom = obj.axiom;
+        this.rules = obj.rules;
+        this.turtle.s("angle", obj.angle);
+    }
+
     this.draw = function(n) {
         this.turtle.context.beginPath();
         this.turtle.context.moveTo(this.turtle.g("x"), this.turtle.g("y"));
