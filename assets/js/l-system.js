@@ -2,14 +2,14 @@
  * Turtle and Curve classes to draw a fractal.
  * Can be used anywhere, requires a canvas.
  *
- * Turtle should not be used directly.
+ * Curve does not depend on a specific context, Turtle does.
  * Define a curve this way:
  *
  * var context = $("#myCanvas")[0].getContext('2d');
  * var koch = new Curve(
  *   "F",                    // axiom
  *   {
- *       "F" : "F+F-F-F",    // rules
+ *       "F" : "F+F-F-F+F",  // rules
  *   },
  *   new Turtle(             // turtle
  *       0,                  // starting point coordinates
@@ -19,7 +19,7 @@
  *       context             // context
  *   )
  * );
- * koch.draw();
+ * koch.draw(4);
  *
  */
 
@@ -110,6 +110,10 @@ function Turtle(x, y, l, a, context) {
     this.pop = function() {
         this.state.pop();
     }
+
+    this.clearContext = function() {
+        this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height);
+    }
 }
 
 // Curve
@@ -119,13 +123,14 @@ function Curve(axiom, rules, turtle) {
     this.turtle = turtle;
 
     this.draw = function(n) {
-        context.moveTo(turtle.g("x"), turtle.g("y"));
-        console.log(turtle.g("x"), turtle.g("y"));
+        this.turtle.context.beginPath();
+        this.turtle.context.moveTo(this.turtle.g("x"), this.turtle.g("y"));
         if (n === 0)
             this.execute(this.axiom);
         else
             this.rec(this.axiom, n);
         this.turtle.reset();
+        this.turtle.context.stroke();
     }
 
     this.rec = function(v, n) {
