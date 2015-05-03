@@ -1,10 +1,14 @@
+<?php
+session_start();
+$_SESSION["url"] = "./new.php";
+?>
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
     <title>New</title>
-    
+
     <link rel="stylesheet" href="../assets/css/new.css">
 </head>
 

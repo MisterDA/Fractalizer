@@ -1,10 +1,14 @@
+<?php
+session_start();
+$_SESSION["url"] = "./fractal.php";
+?>
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
     <title></title>
-    
+
     <link rel="stylesheet" href="../assets/css/fractal.css">
 </head>
 

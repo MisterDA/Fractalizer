@@ -1,10 +1,14 @@
+<?php
+session_start();
+$_SESSION["url"] = "./";
+?>
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
     <title>Top</title>
-    
+
     <link rel="stylesheet" href="../assets/css/index.css">
 </head>
 
