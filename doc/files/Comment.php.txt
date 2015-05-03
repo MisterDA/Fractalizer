@@ -68,7 +68,7 @@ class Comment {
      */
     public function dehydrate() {
         $a = array(
-            "text"   => $this->_title,
+            "text"   => $this->_text,
             "author"  => $this->_author,
             "fractal"   => $this->_fractal,
             "date"    => $this->_date,
@@ -163,12 +163,12 @@ class Comment {
      * Set fractal
      * @param MongoId|Fractal $fractal
      */
-    public function setFractal(Fractal $fractal) {
-        $c = get_class($author);
+    public function setFractal($fractal) {
+        $c = get_class($fractal);
         if ($c == "MongoId")
             $this->_fractal = $fractal;
         elseif ($c == "Fractal")
-            $this->_fractal = $fracta->id();
+            $this->_fractal = $fractal->id();
 
     }
 }

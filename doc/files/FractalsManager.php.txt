@@ -106,7 +106,7 @@ class FractalsManager {
      */
     public function update(Fractal $fractal) {
         $this->_db->fractals->update(array(
-            "_id" => $fractal->id()), array("$set", $fractal->dehydrate()));
+            "_id" => $fractal->id()), array('$set' => $fractal->dehydrate()));
     }
 }
 

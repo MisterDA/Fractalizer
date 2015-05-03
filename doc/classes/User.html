@@ -136,10 +136,10 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-430341918"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1303901782"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-430341918" class="accordion-body collapse in">
+            <div id="namespace-1303901782" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                     
@@ -206,7 +206,6 @@ Class attributes contain MongoId, not references to objects.</p>
                                                                     <a href="../classes/User.html#method_downvoted" class="">downvoted()</a><br />
                                                                     <a href="../classes/User.html#method_downvotedFractals" class="">downvotedFractals()</a><br />
                                                                     <a href="../classes/User.html#method_changedVotes" class="">changedVotes()</a><br />
-                                                                    <a href="../classes/User.html#method_changedVotesFractals" class="">changedVotesFractals()</a><br />
                                                                     <a href="../classes/User.html#method_resetChangedVotes" class="">resetChangedVotes()</a><br />
                                                                     <a href="../classes/User.html#method_upvote" class="">upvote()</a><br />
                                                                     <a href="../classes/User.html#method_downvote" class="">downvote()</a><br />
@@ -436,7 +435,7 @@ Class attributes contain MongoId, not references to objects.</p>
             <article class="property">
                 <h3 class="private ">$_changedVotes</h3>
                 <pre class="signature">$_changedVotes : array</pre>
-                <p><em>Array of MongoId of user&#039;s lasts voted fractals</em></p>
+                <p><em>Array of Fractal of user&#039;s lasts voted fractals</em></p>
                 
 
                                 <h4>Type</h4>
@@ -1030,44 +1029,7 @@ Class attributes contain MongoId, not references to objects.</p>
                 
                                     <h4>Returns</h4>
                     array
-                                            &mdash; <p>Array of MongoId</p>
-                                    				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_changedVotesFractals" name="method_changedVotesFractals" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">changedVotesFractals()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">changedVotesFractals(\FractalsManager  <span class="argument">$fm</span>) : array</pre>
-                <p><em>Get fractals that changed votes</em></p>
-                
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td><a href="../classes/FractalsManager.html">\FractalsManager</a></td>
-                                <td>$fm </td>
-                                <td></td>
-                            </tr>
-                                            </table>
-                
-                
-                                    <h4>Returns</h4>
-                    array
-                                            &mdash; <p>Array of Fractal</p>
+                                            &mdash; <p>Array of Fractals</p>
                                     				
                             </article>
         </div>
@@ -1296,7 +1258,7 @@ Class attributes contain MongoId, not references to objects.</p>
             <article class="method">
                 <h3 class="private ">setUpvoted()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">setUpvoted(array  <span class="argument">$upvoted</span>) </pre>
+                <pre class="signature" style="margin-right: 54px;">setUpvoted(array  <span class="argument">$upvoted = array()</span>) </pre>
                 <p><em>Set up voted fractals id</em></p>
                 
 
@@ -1407,7 +1369,7 @@ Class attributes contain MongoId, not references to objects.</p>
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on May 3rd, 2015 at 10:53.
+                    on May 3rd, 2015 at 23:34.
                 </section>
             </section>
         </section>
