@@ -11,6 +11,9 @@ function post_key($key) {
     return NULL;
 }
 
+if (isset($_POST["text"]))
+    $_SESSION["text"] = $_POST["text"];
+
 function printRegistrationForm(array $errors = array()) {
     if (count($errors) > 0) {
         echo '<div class="error-container">';
@@ -121,6 +124,7 @@ if (isset($_POST["action"])) {
         }
     } elseif ($_POST["action"] == "logout") {
         unset($_SESSION["user"]);
+        unset($_SESSION["url"]);
         printRegistrationForm();
         printLoginForm(false);
     } else {

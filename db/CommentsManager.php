@@ -85,5 +85,18 @@ class CommentsManager {
     public function update(Comment $comment) {
         $this->_db->comments->update(array("_id" => $comment->id()), array('$set' => $comment->dehydrate()));
     }
+    
+    /**
+     * Post a comment
+     * @param Comment $comment
+     * @return boolean true if success
+     */
+    public function post(Comment $comment) {
+        if ($comment->text() != NULL) {
+            $this->add($comment);
+            return true;
+        }
+        return false;
+    }
 }
 
