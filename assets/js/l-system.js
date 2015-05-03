@@ -15,7 +15,7 @@
  *       0,                  // starting point coordinates
  *       600,
  *       5,                  // length
- *       Math.PI / 2,        // angle
+ *       90,                 // angle (degrees)
  *       context             // context
  *   )
  * );
@@ -34,14 +34,14 @@ function Turtle(x, y, l, a, context) {
         dx : 1,
         dy : 0,
         l  : l,
-        a  : a,
+        a  : a * Math.PI / 180,
 
         _x  : x,
         _y  : y,
         _dx : 1,
         _dy : 0,
         _l  : l,
-        _a  : a
+        _a  : a * Math.PI / 180
     }];
 
     this.get = function(k) {
@@ -58,6 +58,7 @@ function Turtle(x, y, l, a, context) {
         this.set(k, v);
     }
 
+    // radians !
     this.rotate = function(t) {
         var dx = this.g("dx");
         var dy = this.g("dy");

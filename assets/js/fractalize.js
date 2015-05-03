@@ -18,7 +18,7 @@ $(document).ready(function() {
                 return rules;
             })(),
             new Turtle(
-                0, 600, 10, parseInt($("#angle").val()) * Math.PI / 180, $("#myCanvas")[0].getContext('2d')
+                0, 600, 10, parseInt($("#angle").val()), $("#myCanvas")[0].getContext('2d')
             )
         );
         curve.turtle.clearContext();
