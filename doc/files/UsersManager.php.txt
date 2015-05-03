@@ -85,7 +85,8 @@ class UsersManager {
      * @return User
      */
     public function findOne(array $query = array()) {
-        return new User($this->_db->users->findOne($query));
+        $doc = $this->_db->users->findOne($query);
+        return ($doc != NULL) ? new User($doc) : NULL;
     }
 
     /**
@@ -110,6 +111,7 @@ class UsersManager {
         $fm = new FractalsManager($this->_db);
         foreach ($user->changedVotesFractals() as $f)
             $fm->update($f);
+        $user->resetChangedVotes();
         $this->_db->users->update(array(
             "_id" => $user->id()), array('$set', $user->dehydrate()));
     }
@@ -145,7 +147,7 @@ class UsersManager {
         }
 
         if ($user->password() != NULL) {
-            $pwd = User::hashPassword($user->password);
+            $pwd = User::hashPassword($user->password());
             if ($pwd != NULL)
                 $user->setPassword($pwd);
             else
@@ -166,15 +168,15 @@ class UsersManager {
      */
     public function login(User $user) {
         if ($user->name() != NULL || $user->email() != NULL) {
-            $u = new User($this->findOne(array(
+            $u = $this->findOne(array(
                 '$or' => array(
                     array("name"  => $user->name()),
                     array("email" => $user->email())
-                ))));
+                )));
             if ($u != NULL) {
-                $user->setPassword(User::hashPassword($user->password()));
-                if ($u->password() == $user->password()) {
+                if (password_verify($user->password(), $u->password())) {
                     $this->logout();
+                    $user->hydrate($u->dehydrate());
                     $_SESSION["user"] = $user;
                     return true;
                 }

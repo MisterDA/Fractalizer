@@ -257,6 +257,13 @@ class User {
     }
 
     /**
+     * Reset changed votes fractals
+     */
+    public function resetChangedVotes() {
+        $this->_changedVotes = array();
+    }
+
+    /**
      * Up vote a Fractal
      * @param Fractal Fractal to up vote
      * @return bool true if not already up voted
@@ -269,6 +276,7 @@ class User {
         foreach ($this->_downvoted as $key => $id) {
             if ($id == $fid) {
                 unset($this->_downvoted[$key]);
+                $fractal->upvote();
                 break;
             }
         }
@@ -291,6 +299,7 @@ class User {
         foreach ($this->_upvoted as $key => $id) {
             if ($id == $fid) {
                 unset($this->_upvoted[$key]);
+                $fractal->downvote();
                 break;
             }
         }
