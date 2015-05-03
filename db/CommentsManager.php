@@ -83,7 +83,7 @@ class CommentsManager {
      * @param Comment $comment
      */
     public function update(Comment $comment) {
-        $this->_db->comments->update(array("_id" => $comment->id()), array("$set", $comment->dehydrate()));
+        $this->_db->comments->update(array("_id" => $comment->id()), array('$set' => $comment->dehydrate()));
     }
 }
 

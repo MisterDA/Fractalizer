@@ -109,11 +109,11 @@ class UsersManager {
      */
     public function update(User $user) {
         $fm = new FractalsManager($this->_db);
-        foreach ($user->changedVotesFractals() as $f)
+        foreach ($user->changedVotes() as $f)
             $fm->update($f);
         $user->resetChangedVotes();
         $this->_db->users->update(array(
-            "_id" => $user->id()), array('$set', $user->dehydrate()));
+            "_id" => $user->id()), array('$set' => $user->dehydrate()));
     }
 
     const ERR_REGISTER_NAME = 0;

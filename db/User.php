@@ -51,7 +51,7 @@ class User {
 
 
     /**
-     * Array of MongoId of user's lasts voted fractals
+     * Array of Fractal of user's lasts voted fractals
      * @var array $_changedVotes
      */
     private $_changedVotes;
@@ -62,6 +62,9 @@ class User {
      * @param array $document Document to create the user from
      */
     public function __construct(array $document = array()) {
+        $this->_upvoted = array();
+        $this->_downvoted = array();
+        $this->_changedVotes = array();
         $this->hydrate($document);
     }
 
@@ -210,8 +213,8 @@ class User {
      * Set up voted fractals id
      * @param array $upvoted
      */
-    private function setUpvoted($upvoted) {
-        $this->_upvoted = $upvoted;
+    private function setUpvoted($upvoted = array()) {
+        $this->_upvoted = ($upvoted != NULL) ? $upvoted : array();
     }
 
     /**
@@ -236,24 +239,15 @@ class User {
      * @param array $downvoted
      */
     private function setDownvoted($downvoted) {
-        $this->_downvoted = $downvoted;
+        $this->_downvoted = ($downvoted != NULL) ? $downvoted : array();
     }
 
     /**
      * Get fractals id that changed votes
-     * @return array Array of MongoId
+     * @return array Array of Fractals
      */
     public function changedVotes() {
         return $this->_changedVotes;
-    }
-
-    /**
-     * Get fractals that changed votes
-     * @param FractalsManager $fm
-     * @return array Array of Fractal
-     */
-    public function changedVotesFractals(FractalsManager $fm) {
-        return $fm->hydrate($fm->find(array("_id" => array('$in' => $this->_changedVotes))));
     }
 
     /**
@@ -282,7 +276,7 @@ class User {
         }
         $fractal->upvote();
         array_push($this->_changedVotes, $fractal);
-        array_push($this->_upvoted, $fractal.id());
+        array_push($this->_upvoted, $fractal->id());
         return true;
     }
 
@@ -305,7 +299,7 @@ class User {
         }
         $fractal->downvote();
         array_push($this->_changedVotes, $fractal);
-        array_push($this->_downvoted, $fractal.id());
+        array_push($this->_downvoted, $fractal->id());
         return true;
     }
 
