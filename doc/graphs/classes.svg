@@ -13,30 +13,30 @@
 <path fill="none" stroke="gray" d="M20,-8C20,-8 130,-8 130,-8 136,-8 142,-14 142,-20 142,-20 142,-338 142,-338 142,-344 136,-350 130,-350 130,-350 20,-350 20,-350 14,-350 8,-344 8,-338 8,-338 8,-20 8,-20 8,-14 14,-8 20,-8"/>
 <text text-anchor="middle" x="75" y="-337.2" font-family="Times,serif" font-size="11.00" fill="gray">Global</text>
 </g>
-<!-- \\Fractal -->
-<g id="node1" class="node"><title>\\Fractal</title>
-<polygon fill="none" stroke="black" points="107,-322 43,-322 43,-286 107,-286 107,-322"/>
-<text text-anchor="middle" x="75" y="-301.2" font-family="Courier,monospace" font-size="11.00">Fractal</text>
-</g>
-<!-- \\Comment -->
-<g id="node2" class="node"><title>\\Comment</title>
-<polygon fill="none" stroke="black" points="107,-268 43,-268 43,-232 107,-232 107,-268"/>
-<text text-anchor="middle" x="75" y="-247.2" font-family="Courier,monospace" font-size="11.00">Comment</text>
+<!-- \\User -->
+<g id="node1" class="node"><title>\\User</title>
+<polygon fill="none" stroke="black" points="102,-322 48,-322 48,-286 102,-286 102,-322"/>
+<text text-anchor="middle" x="75" y="-301.2" font-family="Courier,monospace" font-size="11.00">User</text>
 </g>
 <!-- \\FractalsManager -->
-<g id="node3" class="node"><title>\\FractalsManager</title>
-<polygon fill="none" stroke="black" points="134,-214 16,-214 16,-178 134,-178 134,-214"/>
-<text text-anchor="middle" x="75" y="-193.2" font-family="Courier,monospace" font-size="11.00">FractalsManager</text>
+<g id="node2" class="node"><title>\\FractalsManager</title>
+<polygon fill="none" stroke="black" points="134,-268 16,-268 16,-232 134,-232 134,-268"/>
+<text text-anchor="middle" x="75" y="-247.2" font-family="Courier,monospace" font-size="11.00">FractalsManager</text>
 </g>
 <!-- \\UsersManager -->
-<g id="node4" class="node"><title>\\UsersManager</title>
-<polygon fill="none" stroke="black" points="124,-160 26,-160 26,-124 124,-124 124,-160"/>
-<text text-anchor="middle" x="75" y="-139.2" font-family="Courier,monospace" font-size="11.00">UsersManager</text>
+<g id="node3" class="node"><title>\\UsersManager</title>
+<polygon fill="none" stroke="black" points="124,-214 26,-214 26,-178 124,-178 124,-214"/>
+<text text-anchor="middle" x="75" y="-193.2" font-family="Courier,monospace" font-size="11.00">UsersManager</text>
 </g>
-<!-- \\User -->
-<g id="node5" class="node"><title>\\User</title>
-<polygon fill="none" stroke="black" points="102,-106 48,-106 48,-70 102,-70 102,-106"/>
-<text text-anchor="middle" x="75" y="-85.2" font-family="Courier,monospace" font-size="11.00">User</text>
+<!-- \\Comment -->
+<g id="node4" class="node"><title>\\Comment</title>
+<polygon fill="none" stroke="black" points="107,-160 43,-160 43,-124 107,-124 107,-160"/>
+<text text-anchor="middle" x="75" y="-139.2" font-family="Courier,monospace" font-size="11.00">Comment</text>
+</g>
+<!-- \\Fractal -->
+<g id="node5" class="node"><title>\\Fractal</title>
+<polygon fill="none" stroke="black" points="107,-106 43,-106 43,-70 107,-70 107,-106"/>
+<text text-anchor="middle" x="75" y="-85.2" font-family="Courier,monospace" font-size="11.00">Fractal</text>
 </g>
 <!-- \\CommentsManager -->
 <g id="node6" class="node"><title>\\CommentsManager</title>

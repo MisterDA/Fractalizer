@@ -28,7 +28,9 @@ class UsersManager {
      * @param User $user
      */
     public function add(User $user) {
-        $this->_db->users->insert($user->dehydrate());
+        $doc = $user->dehydrate();
+        $this->_db->users->insert($doc);
+        $user->hydrate($doc);
     }
 
     /**

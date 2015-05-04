@@ -28,7 +28,9 @@ class FractalsManager {
      * @param Fractal $fractal
      */
     public function add(Fractal $fractal) {
-        $this->_db->fractals->insert($fractal->dehydrate());
+        $doc = $fractal->dehydrate();
+        $this->_db->fractals->insert($doc);
+        $fractal->hydrate($doc);
     }
 
     /**
@@ -107,6 +109,15 @@ class FractalsManager {
     public function update(Fractal $fractal) {
         $this->_db->fractals->update(array(
             "_id" => $fractal->id()), array('$set' => $fractal->dehydrate()));
+    }
+
+    /**
+     * Post a fractal
+     * @todo Check fractal integrity
+     * @param Fractal $fractal
+     */
+    public function post(Fractal $fractal) {
+        $this->add($fractal);
     }
 }
 

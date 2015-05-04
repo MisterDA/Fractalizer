@@ -111,7 +111,7 @@
                             </li>
                             <li>
                                 <a href="../reports/markers.html">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">2</span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">3</span>
                                 </a>
                             </li>
                             <li>
@@ -136,10 +136,10 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1303901782"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1990903234"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-1303901782" class="accordion-body collapse in">
+            <div id="namespace-1990903234" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                     
@@ -203,8 +203,10 @@ Class attributes contain MongoId, not references to objects.</p>
                                                                     <a href="../classes/User.html#method_authoredFractals" class="">authoredFractals()</a><br />
                                                                     <a href="../classes/User.html#method_upvoted" class="">upvoted()</a><br />
                                                                     <a href="../classes/User.html#method_upvotedFractals" class="">upvotedFractals()</a><br />
+                                                                    <a href="../classes/User.html#method_hasUpvoted" class="">hasUpvoted()</a><br />
                                                                     <a href="../classes/User.html#method_downvoted" class="">downvoted()</a><br />
                                                                     <a href="../classes/User.html#method_downvotedFractals" class="">downvotedFractals()</a><br />
+                                                                    <a href="../classes/User.html#method_hasDownvoted" class="">hasDownvoted()</a><br />
                                                                     <a href="../classes/User.html#method_changedVotes" class="">changedVotes()</a><br />
                                                                     <a href="../classes/User.html#method_resetChangedVotes" class="">resetChangedVotes()</a><br />
                                                                     <a href="../classes/User.html#method_upvote" class="">upvote()</a><br />
@@ -951,6 +953,42 @@ Class attributes contain MongoId, not references to objects.</p>
 
                                     <div class="row-fluid">
         <div class="span8 content class">
+            <a id="method_hasUpvoted" name="method_hasUpvoted" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">hasUpvoted()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">hasUpvoted(\Fractal  <span class="argument">$fractal</span>) : boolean</pre>
+                <p><em>Has upvoted fractal</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/Fractal.html">\Fractal</a></td>
+                                <td>$fractal </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
             <a id="method_downvoted" name="method_downvoted" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">downvoted()</h3>
@@ -1001,6 +1039,42 @@ Class attributes contain MongoId, not references to objects.</p>
                                     <h4>Returns</h4>
                     array
                                             &mdash; <p>Array of Fractal</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_hasDownvoted" name="method_hasDownvoted" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">hasDownvoted()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">hasDownvoted(\Fractal  <span class="argument">$fractal</span>) : boolean</pre>
+                <p><em>Has downvoted fractal</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/Fractal.html">\Fractal</a></td>
+                                <td>$fractal </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
                                     				
                             </article>
         </div>
@@ -1369,7 +1443,7 @@ Class attributes contain MongoId, not references to objects.</p>
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on May 3rd, 2015 at 23:34.
+                    on May 5th, 2015 at 00:45.
                 </section>
             </section>
         </section>
