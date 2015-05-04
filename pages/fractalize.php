@@ -1,6 +1,43 @@
 <?php
+
+require_once "../db/db_connect.php";
+require_once "../db/FractalsManager.php";
+
 session_start();
 $_SESSION["url"] = "./fractalize.php";
+
+if (isset($_SESSION["user"])) {
+    if (isset($_POST["title"]) && isset($_POST["axiom"]) && isset($_POST["angle"]) && isset($_POST["rules"])) {
+        $fm = new FractalsManager($db);
+        $rules = array();
+        foreach ($_POST["rules"] as $rule) {
+            if (strlen($rule) >= 2) {
+                $rules[substr($rule, 0, 1)] = substr($rule, 2);
+            }
+        }
+        $formula = json_encode(array(
+            "axiom" => $_POST["axiom"],
+            "rules" => $rules,
+            "angle" => $_POST["angle"]
+        ));
+        $f = new Fractal(array(
+            "title" => $_POST["title"],
+            "author" => $_SESSION["user"]->id(),
+            "votes" => 0,
+            "date" => time(),
+            "formula" => $formula
+        ));
+        // @todo Check fractal integrity
+        $fm->post($f);
+        header("Location:./fractal.php?id=".$f->id());
+        exit;
+    }
+} else {
+    header("Location:./connect.php");
+    exit;
+}
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,13 +70,13 @@ $_SESSION["url"] = "./fractalize.php";
                 <td>Pop current state</td>
             </tr>
         </table>
-        <form>
+         <form method="POST">
             <label>Title : <input type="title"  name="title"></label>
             <label>Iter :  <input type="number" name="iter"  id="iter"  min="0" value="0"></label>
             <label>Axiom : <input type="text"   name="axiom" id="axiom"></label>
             <label>Angle (deg): <input type="number" name="angle" id="angle" min="0" max="360" value="0"></label>
             <label id="rules">
-                Rules : <input type="text" name="rule[]">
+                Rules : <input type="text" name="rules[]">
                 <button id="addRuleButton">+</button>
             </label>
             <button id="drawButton">Draw</button>

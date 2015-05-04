@@ -1,7 +1,7 @@
 $(document).ready(function() {
     $("#addRuleButton").click(function (e) {
         e.preventDefault();
-        $(this).before('<input type="text" name="rule[]">');
+        $(this).before('<input type="text" name="rules[]">');
     });
 
     $("#drawButton").click(function (e) {
