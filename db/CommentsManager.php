@@ -27,7 +27,9 @@ class CommentsManager {
      * @param Comment $comment
      */
     public function add(Comment $comment) {
-        $this->_db->comments->insert($comment->dehydrate());
+        $doc = $comment->dehydrate();
+        $this->_db->comments->insert($doc);
+        $comment->hydrate($doc);
     }
 
     /**
@@ -85,7 +87,7 @@ class CommentsManager {
     public function update(Comment $comment) {
         $this->_db->comments->update(array("_id" => $comment->id()), array('$set' => $comment->dehydrate()));
     }
-    
+
     /**
      * Post a comment
      * @param Comment $comment

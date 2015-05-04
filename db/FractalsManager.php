@@ -28,7 +28,9 @@ class FractalsManager {
      * @param Fractal $fractal
      */
     public function add(Fractal $fractal) {
-        $this->_db->fractals->insert($fractal->dehydrate());
+        $doc = $fractal->dehydrate();
+        $this->_db->fractals->insert($doc);
+        $fractal->hydrate($doc);
     }
 
     /**
