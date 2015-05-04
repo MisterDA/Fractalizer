@@ -210,6 +210,18 @@ class User {
     }
 
     /**
+     * Has upvoted fractal
+     * @param Fractal $fractal
+     * @return boolean
+     */
+    public function hasUpvoted(Fractal $fractal) {
+        foreach ($this->_upvoted as $id)
+            if ($id == $fractal->id())
+                return true;
+        return false;
+    }
+
+    /**
      * Set up voted fractals id
      * @param array $upvoted
      */
@@ -232,6 +244,18 @@ class User {
      */
     public function downvotedFractals(FractalsManager $fm) {
         return $fm->hydrate($fm->find(array("_id" => array('$in' => $this->_dowvoted))));
+    }
+
+    /**
+     * Has downvoted fractal
+     * @param Fractal $fractal
+     * @return boolean
+     */
+    public function hasDownvoted(Fractal $fractal) {
+        foreach ($this->_downvoted as $id)
+            if ($id == $fractal->id())
+                return true;
+        return false;
     }
 
     /**

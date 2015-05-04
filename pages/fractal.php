@@ -96,34 +96,12 @@ if ($f == NULL) {
 
 <p class="votes">Votes : <span id="vote"><?php echo $f->votes(); ?></span></p>
 
-<?php
-
-function has_upvoted($f) {
-    $array = $_SESSION["user"]->upvoted();
-    if ($array == NULL) return;
-    foreach ($array as $id)
-        if ($id == $f->id())
-            return ' class="upvoted"';
-}
-
-function has_downvoted($f) {
-    $array = $_SESSION["user"]->downvoted();
-    if ($array == NULL) return;
-    foreach ($array as $id)
-        if ($id == $f->id())
-            return ' class="downvoted"';
-}
-
-if ($um->hasLoggedInUser()) {
-    echo '<button id="upvote"';
-    echo has_upvoted($f);
-    echo '>Upvote</button><button id="downvote"';
-    echo has_downvoted($f);
-    echo '>Downvote</button>';
-} else {
-    echo '<form action="./connect.php"><input type="submit" value="Upvote"><input type="submit" value="Downvote"></form>';
-}
-?>
+<?php if ($um->hasLoggedInUser()) { ?>
+    <button id="upvote"<?php if ($um->loggedUser()->hasUpvoted($f)) echo ' class="upvoted"'; ?>>Upvote</button>
+    <button id="downvote"<?php if ($um->loggedUser()->hasDownvoted($f)) echo ' class="downvoted"'; ?>>Downvote</button>
+<?php } else { ?>
+    <form action="./connect.php"><input type="submit" value="Upvote"><input type="submit" value="Downvote"></form>
+<?php } ?>
 
     <section id="comments">
 <?php
