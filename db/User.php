@@ -172,6 +172,19 @@ class User {
     public static function hashPassword($password) {
         if (is_string($password) && strlen($password) >= 3 && strlen($password) <= 20)
             return password_hash($password, PASSWORD_DEFAULT);
+            //return crypt($password);
+            //return $password;
+    }
+
+    /**
+     * Password equals
+     * @param string $password Password to check
+     * @return boolean
+     */
+    public function passwordEquals($password) {
+        return password_verify($this->_password, $password);
+        //return hash_equals($this->_password, $password);
+        //return $this->_password == $password;
     }
 
     /**

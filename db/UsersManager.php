@@ -176,7 +176,7 @@ class UsersManager {
                     array("email" => $user->email())
                 )));
             if ($u != NULL) {
-                if (password_verify($user->password(), $u->password())) {
+                if ($user->passwordEquals($u->password())) {
                     $this->logout();
                     $user->hydrate($u->dehydrate());
                     $_SESSION["user"] = $user;
