@@ -50,7 +50,7 @@ foreach ($fractals as $f) {
     <article>
         <h1>
             <span class="title"><?php echo $f->title(); ?></span> by
-            <a class="author" href="./user.php?id=<?php echo$author->id(); ?>"><?php echo $author->name(); ?></a> on
+            <a class="author" href="./user.php?id=<?php echo $author->id(); ?>"><?php echo $author->name(); ?></a> on
             <span class="date"><?php echo $f->date("d/m/y H:i"); ?></span>
         </h1>
         <a href="./fractal.php?id=<?php echo $f->id(); ?>"><canvas width="800" height="600" data-formula="<?php echo htmlentities($f->formula()); ?>"></canvas></a>
