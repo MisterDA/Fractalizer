@@ -1,51 +1,10 @@
-<?php
-
-require_once "../db/db_connect.php";
-require_once "../db/FractalsManager.php";
-
-session_start();
-$_SESSION["url"] = "./fractalize.php";
-
-if (isset($_SESSION["user"])) {
-    if (isset($_POST["title"]) && isset($_POST["axiom"]) && isset($_POST["angle"]) && isset($_POST["rules"])) {
-        $fm = new FractalsManager($db);
-        $rules = array();
-        foreach ($_POST["rules"] as $rule) {
-            if (strlen($rule) >= 2) {
-                $rules[substr($rule, 0, 1)] = substr($rule, 2);
-            }
-        }
-        $formula = json_encode(array(
-            "axiom" => $_POST["axiom"],
-            "rules" => $rules,
-            "angle" => $_POST["angle"]
-        ));
-        $f = new Fractal(array(
-            "title" => $_POST["title"],
-            "author" => $_SESSION["user"]->id(),
-            "votes" => 0,
-            "date" => time(),
-            "formula" => $formula
-        ));
-        // @todo Check fractal integrity
-        $fm->post($f);
-        header("Location:./fractal.php?id=".$f->id());
-        exit;
-    }
-} else {
-    header("Location:./connect.php");
-    exit;
-}
-
-
-?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <title>Fractalizer</title>
 
-        <link rel="stylesheet" href="../assets/css/fractalize.css">
+        <link rel="stylesheet" href="view/assets/css/fractalize.css">
     </head>
     <body>
         <ul>
@@ -86,8 +45,8 @@ if (isset($_SESSION["user"])) {
         <canvas id="myCanvas" width="800" height="600">Canvas is not supported !</canvas>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script src="../assets/js/l-system.js"></script>
-        <script src="../assets/js/fractalize.js"></script>
+        <script src="view/assets/js/l-system.js"></script>
+        <script src="view/assets/js/fractalize.js"></script>
     </body>
 </html>
 

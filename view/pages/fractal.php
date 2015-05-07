@@ -1,67 +1,3 @@
-<?php
-
-require_once "../db/db_connect.php";
-require_once "../db/FractalsManager.php";
-
-session_start();
-
-$fm = new FractalsManager($db);
-$um = new UsersManager($db);
-$cm = new CommentsManager($db);
-
-// AJAX
-if ($um->hasLoggedInUser()) {
-    if (isset($_POST["action"]) && isset($_POST["fractal"])) {
-        $f = $fm->get(new MongoId($_POST["fractal"]));
-        if ($f == NULL) exit;
-
-        if ($_POST["action"] == "upvote") {
-            $u = $um->loggedUser();
-            $u->upvote($f);
-            $um->update($u);
-        } elseif ($_POST["action"] == "downvote") {
-            $u = $um->loggedUser();
-            $u->downvote($f);
-            $um->update($u);
-        }
-        echo $f->votes();
-        exit;
-    } else if (isset($_POST["text"])) {
-        $comment = new Comment(array(
-            "text" => $_POST["text"],
-            "author" => $um->loggedUser()->id(),
-            "fractal" => new MongoId($_POST["fractal"]),
-            "date" => time()
-        ));
-        if ($cm->post($comment))
-            echo json_encode(array(
-                "success" => true,
-                "text" => htmlentities($comment->text()),
-                "author" => htmlentities($um->loggedUser()->name()),
-                "date" => $comment->date('d/m/y H:i')
-            ));
-        else
-            echo json_encode(array("success" => false));
-        exit;
-    }
-}
-
-if (!isset($_GET["id"])) {
-    header("Location:./");
-    exit;
-}
-
-$_SESSION["url"] = "./fractal.php?id={$_GET["id"]}";
-
-$f = $fm->get(new MongoId($_GET["id"]));
-
-// Invalid id
-if ($f == NULL) {
-    header("Location:./");
-    exit;
-}
-
-?>
 <!DOCTYPE html>
 <html>
 
@@ -69,7 +5,7 @@ if ($f == NULL) {
     <meta charset="utf-8">
     <title><?php echo htmlentities($f->title()); ?> - Fractals</title>
 
-    <link rel="stylesheet" href="../assets/css/fractal.css">
+    <link rel="stylesheet" href="view/assets/css/fractal.css">
 </head>
 
 <body>
@@ -100,7 +36,7 @@ if ($f == NULL) {
     <button id="upvote"<?php if ($um->loggedUser()->hasUpvoted($f)) echo ' class="upvoted"'; ?>>Upvote</button>
     <button id="downvote"<?php if ($um->loggedUser()->hasDownvoted($f)) echo ' class="downvoted"'; ?>>Downvote</button>
 <?php } else { ?>
-    <form action="./connect.php"><input type="submit" value="Upvote"><input type="submit" value="Downvote"></form>
+    <form action="/connect"><input type="submit" value="Upvote"><input type="submit" value="Downvote"></form>
 <?php } ?>
 
     <section id="comments">
@@ -127,7 +63,7 @@ if ($um->hasLoggedInUser()) {
     echo '<input type="submit" value="Post" id="post"></form>';
 } else {
     unset($_SESSION["text"]);
-    echo '<form action="./connect.php" method="POST"><textarea name="text"></textarea>';
+    echo '<form action="/connect" method="POST"><textarea name="text"></textarea>';
     echo '<input type="submit" value="Post"></form>';
 }
 
@@ -135,8 +71,8 @@ if ($um->hasLoggedInUser()) {
     </section>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="../assets/js/l-system.js"></script>
-    <script src="../assets/js/fractal.js"></script>
+    <script src="view/assets/js/l-system.js"></script>
+    <script src="view/assets/js/fractal.js"></script>
 </body>
 </html>
 
