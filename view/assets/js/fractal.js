@@ -10,19 +10,19 @@ $(document).ready(function() {
 
 
     $("#upvote").click(function(e) {
-        $.post('fractal.php', {action: 'upvote', fractal: id}, function (data) {
+        $.post('/fractal', {action: 'upvote', fractal: id}, function (data) {
             $("#vote").text(data);
         });
     });
     $("#downvote").click(function() {
-        $.post('fractal.php', {action: 'downvote', fractal: id}, function(data) {
+        $.post('/fractal', {action: 'downvote', fractal: id}, function(data) {
             $("#vote").text(data);
         });
     });
     $("#post").click(function(e) {
         e.preventDefault();
         var text = $(this).prev().val();
-        $.post('fractal.php', {text: text, fractal: id}, function(data) {
+        $.post('/fractal', {text: text, fractal: id}, function(data) {
             if (data.success) {
                 var str = '<div class="comment"><h3><span class="author">' + data.author + '</span> on <span class="date">' + data.date + '</span></h3><p class="text">' + data.text + '</p></div>';
                 $("#comments form").before(str);

@@ -10,13 +10,13 @@ $(document).ready(function() {
     });
     $("button[data-role=upvote]").click(function(e) {
         var id = $(this).attr("data-id");
-        $.post('index.php', {action: 'upvote', fractal: id}, function (data) {
+        $.post('/', {action: 'upvote', fractal: id}, function (data) {
             $("#vote-" + id).text(data);
         });
     });
     $("button[data-role=downvote]").click(function() {
         var id = $(this).attr("data-id");
-        $.post('index.php', {action: 'downvote', fractal: id}, function(data) {
+        $.post('/', {action: 'downvote', fractal: id}, function(data) {
             $("#vote-" + id).text(data);
         });
     });
