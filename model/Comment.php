@@ -6,7 +6,7 @@
  * You can create a comment from scratch, or from an array (MongoDB document).
  * Class attributes contain MongoId, not references to objects.
  *
- * @package Database
+ * @package Model
  */
 class Comment {
 

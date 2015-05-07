@@ -4,7 +4,8 @@ require_once("User.php");
 
 /**
  * Manage Users
- * @package Database
+ *
+ * @package Model
  */
 class UsersManager {
 
@@ -163,10 +164,12 @@ class UsersManager {
     }
 
 
-    /**
+    const ERR_LOGIN = 5;
+
+   /**
      * Log in an user, set $_SESSION["user"] to the $user object if success
      * @param User $user
-     * @return boolean true if success
+     * @return array Errors
      */
     public function login(User $user) {
         if ($user->name() != NULL || $user->email() != NULL) {
@@ -179,12 +182,13 @@ class UsersManager {
                 if (password_verify($user->password(), $u->password())) {
                     $this->logout();
                     $user->hydrate($u->dehydrate());
-                    $_SESSION["user"] = $user;
-                    return true;
-                }
+                    $_SESSION["user"] = $user;                }
+            } else {
+                return array(UsersManager::ERR_LOGIN);
             }
+        } else {
+            return array(UsersManager::ERR_LOGIN);
         }
-        return false;
     }
 
     /**

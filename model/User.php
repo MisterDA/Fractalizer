@@ -9,7 +9,7 @@ require_once("CommentsManager.php");
  * You can create an user from scratch, or from an array (MongoDB document).
  * Class attributes contain MongoId, not references to objects.
  *
- * @package Database
+ * @package Model
  */
 class User {
 
@@ -181,6 +181,22 @@ class User {
      */
     public function comments(CommentsManager $cm) {
         return $cm->hydrate($fm->find(array("author" => $this->_id)));
+    }
+
+    /**
+     * Get commented fractals
+     * @param FractalsManager $fm
+     * @param CommentsManager $cm
+     * @return array Array of Fractal
+     */
+    public function commentedFractals(FractalsManager $fm, CommentsManager $cm) {
+        $comments = $cm->find(array("author" => $this->_id), array("fractal" => true));
+        if ($comments == NULL)
+            return;
+        $fractalsId = NULL;
+        foreach ($comments as $c)
+            $fractalsId[] = $c["fractal"];
+        return $fm->hydrate($fm->find(array("_id" => array('$in' => $fractalsId))));
     }
 
     /**

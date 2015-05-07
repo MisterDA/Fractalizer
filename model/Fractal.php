@@ -9,7 +9,7 @@ require_once("CommentsManager.php");
  * You can create a fractal from scratch, or from an array (MongoDB document).
  * Class attributes contain MongoId, not references to objects.
  *
- * @package Database
+ * @package Model
  */
 class Fractal {
 

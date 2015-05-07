@@ -4,7 +4,8 @@ require_once("Fractal.php");
 
 /**
  * Manage Fractals
- * @package Database
+ *
+ * @package Model
  */
 class FractalsManager {
 

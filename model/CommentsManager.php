@@ -4,7 +4,8 @@ require_once("Comment.php");
 
 /**
  * Manage Comments
- * @package Database
+ *
+ * @package Model
  */
 class CommentsManager {
 
