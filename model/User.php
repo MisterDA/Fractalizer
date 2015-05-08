@@ -156,7 +156,7 @@ class User extends Entity {
         $comments = $cm->find(array("author" => $this->id()), array("fractal" => true));
         if ($comments == NULL)
             return;
-        $fractalsId = NULL;
+        $fractalsId = array();
         foreach ($comments as $c)
             $fractalsId[] = $c["fractal"];
         return $fm->hydrate($fm->find(array("_id" => array('$in' => $fractalsId))));
@@ -317,6 +317,7 @@ class User extends Entity {
             if ($id == $fid) {
                 unset($this->_upvoted[$key]);
                 array_push($this->_changedVotes, $fractal);
+                $fractal->downvote();
                 return true;
             }
         }
@@ -334,6 +335,7 @@ class User extends Entity {
             if ($id == $fid) {
                 unset($this->_downvoted[$key]);
                 array_push($this->_changedVotes, $fractal);
+                $fractal->upvote();
                 return true;
             }
         }

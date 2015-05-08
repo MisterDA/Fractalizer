@@ -34,11 +34,18 @@ class IndexController extends Controller {
 
                 if ($_POST["action"] == "upvote") {
                     $u = $this->um()->loggedUser();
-                    $u->upvote($f);
+                    if ($u->hasUpvoted($f)) {
+                        $u->cancelUpvote($f);
+                    } else {
+                        $u->upvote($f);
+                    }
                     $this->um()->update($u);
                 } elseif ($_POST["action"] == "downvote") {
                     $u = $this->um()->loggedUser();
-                    $u->downvote($f);
+                    if ($u->hasDownvoted($f))
+                        $u->cancelDownvote($f);
+                    else
+                        $u->downvote($f);
                     $this->um()->update($u);
                 }
                 echo $f->votes();
