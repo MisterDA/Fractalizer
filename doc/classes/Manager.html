@@ -136,10 +136,10 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1567697329"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1864464142"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-1567697329" class="accordion-body collapse in">
+            <div id="namespace-1864464142" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                     
@@ -176,8 +176,8 @@
                                             </nav>
                     <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
 
-                    <h1><small>\</small>FractalsManager</h1>
-                    <p><em>Manage Fractals</em></p>
+                    <h1><small>\</small>Manager</h1>
+                    <p><em>Manager root class</em></p>
                     
                     
                                         
@@ -196,16 +196,9 @@
                         </section>
                         <section class="row-fluid public">
                             <section class="span4">
-                                                                    <a href="../classes/FractalsManager.html#method___construct" class="">__construct()</a><br />
+                                                                    <a href="../classes/Manager.html#method___construct" class="">__construct()</a><br />
                                                                     <a href="../classes/Manager.html#method_get" class="">get()</a><br />
                                                                     <a href="../classes/Manager.html#method_db" class="">db()</a><br />
-                                                                    <a href="../classes/FractalsManager.html#method_add" class="">add()</a><br />
-                                                                    <a href="../classes/FractalsManager.html#method_remove" class="">remove()</a><br />
-                                                                    <a href="../classes/FractalsManager.html#method_find" class="">find()</a><br />
-                                                                    <a href="../classes/FractalsManager.html#method_findOne" class="">findOne()</a><br />
-                                                                    <a href="../classes/FractalsManager.html#method_hydrate" class="">hydrate()</a><br />
-                                                                    <a href="../classes/FractalsManager.html#method_update" class="">update()</a><br />
-                                                                    <a href="../classes/FractalsManager.html#method_post" class="">post()</a><br />
                                                             </section>
                             <section class="span4">
                                                                     <em>No public properties found</em>
@@ -239,18 +232,17 @@
                     </section>
                 </div>
                 <aside class="span4 detailsbar">
+                                            <span class="label label-info">abstract</span>
                                         
                     
                     <dl>
                         <dt>File</dt>
-                            <dd><a href="../files/model.FractalsManager.html"><div class="path-wrapper">model/FractalsManager.php</div></a></dd>
+                            <dd><a href="../files/model.Manager.html"><div class="path-wrapper">model/Manager.php</div></a></dd>
                                                 <dt>Package</dt>
                             <dd><div class="namespace-wrapper">Model</div></dd>
                                                 <dt>Class hierarchy</dt>
                             <dd class="hierarchy">
-                                                                                                                                                                                                                                                                                                
-                                        <div class="namespace-wrapper"><a href="../classes/Manager.html">\Manager</a></div>
-                                                                                                    <div class="namespace-wrapper">\FractalsManager</div>
+                                                                                                                                                                    <div class="namespace-wrapper">\Manager</div>
                             </dd>
 
                         
@@ -290,8 +282,6 @@
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                         <dl>
-                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/Manager.html"><div class="path-wrapper">\Manager</div></a></dd>
                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -314,7 +304,7 @@
                 <h3 class="public ">__construct()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">__construct(\MongoDB  <span class="argument">$db</span>) </pre>
-                <p><em>Create a FractalsManager</em></p>
+                <p><em>Create a Manager</em></p>
                 
 
                                     <h4>Parameters</h4>
@@ -369,9 +359,7 @@
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/Manager.html"><div class="path-wrapper">\Manager</div></a></dd>
-                                                            </dl>
+                                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -399,265 +387,10 @@
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/Manager.html"><div class="path-wrapper">\Manager</div></a></dd>
-                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_add" name="method_add" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">add()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">add(\Fractal  <span class="argument">$fractal</span>) </pre>
-                <p><em>Add a fractal to the database</em></p>
-                
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td><a href="../classes/Fractal.html">\Fractal</a></td>
-                                <td>$fractal </td>
-                                <td></td>
-                            </tr>
-                                            </table>
-                
-                
-                				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_remove" name="method_remove" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">remove()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">remove(\Fractal  <span class="argument">$fractal</span>) </pre>
-                <p><em>Remove a fractal from the database</em></p>
-                <p>The function will cancel every vote that was applied to it,
-and remove it's comments.</p>
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td><a href="../classes/Fractal.html">\Fractal</a></td>
-                                <td>$fractal </td>
-                                <td></td>
-                            </tr>
-                                            </table>
-                
-                
-                				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_find" name="method_find" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">find()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">find(array  <span class="argument">$query = array()</span>) : \MongoCursor</pre>
-                <p><em>Find fractals. You can then hydrate the cursor to work on objects.</em></p>
-                
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td>array</td>
-                                <td>$query </td>
-                                <td></td>
-                            </tr>
-                                            </table>
-                
-                
-                                    <h4>Returns</h4>
-                    \MongoCursor
-                                    				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_findOne" name="method_findOne" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">findOne()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">findOne(array  <span class="argument">$query = array()</span>) : \Fractal</pre>
-                <p><em>Find one fractal</em></p>
-                
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td>array</td>
-                                <td>$query </td>
-                                <td></td>
-                            </tr>
-                                            </table>
-                
-                
-                                    <h4>Returns</h4>
-                    <a href="../classes/Fractal.html">\Fractal</a>
-                                    				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_hydrate" name="method_hydrate" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">hydrate()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">hydrate(\MongoCursor  <span class="argument">$cursor</span>) : array</pre>
-                <p><em>Convert a MongoCursor of fractals to an array of Fractal,
-indexed by their MongoId</em></p>
-                
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td>\MongoCursor</td>
-                                <td>$cursor </td>
-                                <td></td>
-                            </tr>
-                                            </table>
-                
-                
-                                    <h4>Returns</h4>
-                    array
-                                    				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_update" name="method_update" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">update()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">update(\Fractal  <span class="argument">$fractal</span>) </pre>
-                <p><em>Update a fractal</em></p>
-                
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td><a href="../classes/Fractal.html">\Fractal</a></td>
-                                <td>$fractal </td>
-                                <td></td>
-                            </tr>
-                                            </table>
-                
-                
-                				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_post" name="method_post" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">post()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">post(\Fractal  <span class="argument">$fractal</span>) </pre>
-                <p><em>Post a fractal</em></p>
-                
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td><a href="../classes/Fractal.html">\Fractal</a></td>
-                                <td>$fractal </td>
-                                <td></td>
-                            </tr>
-                                            </table>
-                
-                
-                				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr>
-                        <th>
-                            todo
-                        </th>
-                        <td>
-                                                                                            <p>Check fractal integrity</p>
-                                                    </td>
-                    </tr>
                             </table>
         </aside>
     </div>
@@ -668,10 +401,10 @@ indexed by their MongoId</em></p>
     <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="source-view-label">FractalsManager.php</h3>
+            <h3 id="source-view-label">Manager.php</h3>
         </div>
         <div class="modal-body">
-            <pre data-src="../files/model/FractalsManager.php.txt" class="language-php line-numbers"></pre>
+            <pre data-src="../files/model/Manager.php.txt" class="language-php line-numbers"></pre>
         </div>
     </div>
 
