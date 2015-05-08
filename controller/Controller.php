@@ -40,12 +40,13 @@ abstract class Controller {
      */
     protected $_cm;
 
+
     /**
      * Create a Controller
      * @param MongoDB $db Database object
      * @param array $uri URI (request)
      */
-    protected function __construct($db, $uri) {
+    public function __construct($db, $uri) {
         $this->_db  = $db;
         $this->_uri = $uri;
 
@@ -57,6 +58,30 @@ abstract class Controller {
     /**
      * Invoke the Controller
      */
-    abstract protected function invoke();
+    abstract public function invoke();
+
+    /**
+     * Get a fractal manager
+     * @return FractalsManager
+     */
+    public function fm() {
+        return $this->_fm;
+    }
+
+    /**
+     * Get an user manager
+     * @return UsersManager
+     */
+    public function um() {
+        return $this->_um;
+    }
+
+    /**
+     * Get a comment manager
+     * @return CommentsManager
+     */
+    public function cm() {
+        return $this->_cm;
+    }
 }
 

@@ -8,6 +8,19 @@ require_once("Controller.php");
  * @package Controller
  */
 class UserController extends Controller {
+
+    /**
+     * Create a Controller
+     * @param MongoDB $db Database object
+     * @param array $uri URI (request)
+     */
+    public function __construct($db, $uri) {
+        parent::__construct($db, $uri);
+    }
+
+    /**
+     * Invoke the Controller
+     */
     public function invoke() {
         $_SESSION["url"] = "/user";
 
@@ -18,7 +31,7 @@ class UserController extends Controller {
 
         $_SESSION["url"] = "/user?id={$_GET["id"]}";
 
-        $u = $this->_um->get(new MongoId($_GET["id"]));
+        $u = $this->um()->get(new MongoId($_GET["id"]));
 
         // Invalid id
         if ($u == NULL) {
@@ -27,12 +40,12 @@ class UserController extends Controller {
         }
 
         // Answer
-        $authored = $u->authoredFractals($this->_fm);
-        $upvoted  = $u->upvotedFractals($this->_fm);
-        $commented = $u->commentedFractals($this->_fm, $this->_cm);
-        $fm = $this->_fm;
-        $um = $this->_um;
-        $cm = $this->_cm;
+        $authored = $u->authoredFractals($this->fm());
+        $upvoted  = $u->upvotedFractals($this->fm());
+        $commented = $u->commentedFractals($this->fm(), $this->cm());
+        $fm = $this->fm();
+        $um = $this->um();
+        $cm = $this->cm();
         require_once("view/pages/user.php");
      }
 }

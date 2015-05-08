@@ -2,6 +2,9 @@
 
 require_once("Controller.php");
 
+/**
+ * @ignore
+ */
 function post_key($key) {
     if (isset($_POST[$key]))
         return $_POST[$key];
@@ -14,6 +17,19 @@ function post_key($key) {
  * @package Controller
  */
 class ConnectController extends Controller {
+
+    /**
+     * Create a Controller
+     * @param MongoDB $db Database object
+     * @param array $uri URI (request)
+     */
+    public function __construct($db, $uri) {
+        parent::__construct($db, $uri);
+    }
+
+    /**
+     * Invoke the Controller
+     */
     public function invoke() {
 
         $printRegistrationForm = true;
@@ -32,10 +48,10 @@ class ConnectController extends Controller {
                     "email"    => post_key("email"),
                     "password" => post_key("password")
                 ));
-                $errors = $this->_um->register($user);
+                $errors = $this->um()->register($user);
 
                 if ($errors == NULL) {
-                    $this->_um->login($user);
+                    $this->um()->login($user);
                     if (isset($_SESSION["url"])) {
                         header("Location: ".$_SESSION["url"]);
                         exit;
@@ -50,7 +66,7 @@ class ConnectController extends Controller {
                     "email"    => post_key("login"),
                     "password" => post_key("password")
                 ));
-                $errors = $this->_um->login($user);
+                $errors = $this->um()->login($user);
 
                 if ($errors == NULL) {
                     if (isset($_SESSION["url"])) {
