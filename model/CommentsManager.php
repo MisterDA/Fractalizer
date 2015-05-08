@@ -24,7 +24,7 @@ class CommentsManager extends Manager {
      */
     public function add(Comment $comment) {
         $doc = $comment->dehydrate();
-        $this->_db->comments->insert($doc);
+        $this->db()->comments->insert($doc);
         $comment->hydrate($doc);
     }
 
@@ -42,7 +42,7 @@ class CommentsManager extends Manager {
      * @return MongoCursor
      */
     public function find(array $query = array()) {
-        return $this->_db->comments->find($query);
+        return $this->db()->comments->find($query);
     }
 
     /**
@@ -51,7 +51,7 @@ class CommentsManager extends Manager {
      * @return Comment
      */
     public function findOne(array $query = array()) {
-        $doc = $this->_db->comments->findOne($query);
+        $doc = $this->db()->comments->findOne($query);
         return ($doc != NULL) ? new Comment($doc) : NULL;
     }
 
@@ -72,7 +72,7 @@ class CommentsManager extends Manager {
      * @param Comment $comment
      */
     public function update(Comment $comment) {
-        $this->_db->comments->update(array("_id" => $comment->id()), array('$set' => $comment->dehydrate()));
+        $this->db()->comments->update(array("_id" => $comment->id()), array('$set' => $comment->dehydrate()));
     }
 
     /**

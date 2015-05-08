@@ -110,7 +110,7 @@ class Fractal extends Entity {
      * @return array Array of Comments
      */
     public function comments(CommentsManager $cm) {
-        return $cm->hydrate($cm->find(array("fractal" => $this->_id)));
+        return $cm->hydrate($cm->find(array("fractal" => $this->id())));
     }
 
     /**
@@ -189,7 +189,7 @@ class Fractal extends Entity {
      * @return array Array of User
      */
     public function upvoters(UsersManager $um) {
-        return $um->hydrate($um->find(array("upvoted" => $this->_id)));
+        return $um->hydrate($um->find(array("upvoted" => $this->id())));
     }
 
     /**
@@ -198,7 +198,7 @@ class Fractal extends Entity {
      * @return array Array of User
      */
     public function downvoters(UsersManager $um) {
-        return $um->hydrate($um->find(array("_id" => $this->_id)));
+        return $um->hydrate($um->find(array("_id" => $this->id())));
     }
 }
 

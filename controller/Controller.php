@@ -10,35 +10,36 @@ session_start();
  * @package Controller
  */
 abstract class Controller {
+
     /**
      * Database object
      * @var MongoDB $_db;
      */
-    protected $_db;
+    private $_db;
 
     /**
      * URI (request)
      * @var array URI
      */
-    protected $_uri;
+    private $_uri;
 
     /**
      * Fractals manager
      * @var FractalsManager $_fm
      */
-    protected $_fm;
+    private $_fm;
 
     /**
      * Users manager
      * @var UsersManager $_um
      */
-    protected $_um;
+    private $_um;
 
     /**
      * Comments manager
      * @var CommentsManager $_cm
      */
-    protected $_cm;
+    private $_cm;
 
 
     /**

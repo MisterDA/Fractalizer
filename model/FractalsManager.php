@@ -24,7 +24,7 @@ class FractalsManager extends Manager {
      */
     public function add(Fractal $fractal) {
         $doc = $fractal->dehydrate();
-        $this->_db->fractals->insert($doc);
+        $this->db()->fractals->insert($doc);
         $fractal->hydrate($doc);
     }
 
@@ -37,7 +37,7 @@ class FractalsManager extends Manager {
      * @param Fractal $fractal
      */
     public function remove(Fractal $fractal) {
-        $um = new UsersManager($this->$_db);
+        $um = new UsersManager($this->$db());
 
         foreach ($fractal->upvoters($um) as $user) {
             $user->cancelUpvote($fractal);
@@ -49,7 +49,7 @@ class FractalsManager extends Manager {
             $um->update($user);
         }
 
-        $cm = new CommentsManager($this->_db);
+        $cm = new CommentsManager($this->db());
         foreach ($fractal->comments() as $comment)
             $cm->remove($comment);
 
@@ -62,7 +62,7 @@ class FractalsManager extends Manager {
      * @return MongoCursor
      */
     public function find(array $query = array()) {
-        return $this->_db->fractals->find($query);
+        return $this->db()->fractals->find($query);
     }
 
     /**
@@ -71,7 +71,7 @@ class FractalsManager extends Manager {
      * @return Fractal
      */
     public function findOne(array $query = array()) {
-        $doc = $this->_db->fractals->findOne($query);
+        $doc = $this->db()->fractals->findOne($query);
         return ($doc != NULL) ? new Fractal($doc) : NULL;
     }
 
@@ -93,7 +93,7 @@ class FractalsManager extends Manager {
      * @param Fractal $fractal
      */
     public function update(Fractal $fractal) {
-        $this->_db->fractals->update(array(
+        $this->db()->fractals->update(array(
             "_id" => $fractal->id()), array('$set' => $fractal->dehydrate()));
     }
 

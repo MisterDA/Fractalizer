@@ -13,7 +13,7 @@ abstract class Manager {
      * Database
      * @var MongoDB $_db
      */
-    protected $_db;
+    private $_db;
 
 
     /**
@@ -71,6 +71,14 @@ abstract class Manager {
      */
     public function get(MongoId $id) {
         return $this->findOne(array("_id" => $id));
+    }
+
+    /**
+     * Get database
+     * @return MongoDB
+     */
+    public function db() {
+        return $this->_db;
     }
 }
 
