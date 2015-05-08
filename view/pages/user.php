@@ -19,16 +19,18 @@
         </ul>
     </nav>
 
+<?php if (count($authored) > 0) { ?>
     <section id="authored-section">
+        <h2>Authored</h2>
 <?php
 foreach ($authored as $f) {
 ?>
     <article>
-        <h1>
+        <h3>
             <span class="title"><?php echo $f->title(); ?></span> by
             <a class="author" href="/user?id=<?php echo $u->id(); ?>"><?php echo $u->name(); ?></a> on
             <span class="date"><?php echo $f->date("d/m/y H:i"); ?></span>
-        </h1>
+        </h3>
         <a href="/fractal?id=<?php echo $f->id(); ?>"><canvas width="800" height="600" data-formula="<?php echo htmlentities($f->formula()); ?>"></canvas></a>
         <p class="votes">Votes : <span class="vote" data-id="<?php echo $f->id();?>"><?php echo $f->votes(); ?></span></p>
 <?php if ($um->hasLoggedInUser()) { ?>
@@ -43,16 +45,19 @@ foreach ($authored as $f) {
 ?>
     </section>
 
+<?php } if (count($upvoted) > 0) { ?>
+
     <section id="upvoted-section">
+        <h2>Upvoted</h2>
 <?php
 foreach ($upvoted as $f) {
 ?>
     <article>
-        <h1>
+        <h3>
             <span class="title"><?php echo $f->title(); ?></span> by
             <a class="author" href="/user?id=<?php echo $u->id(); ?>"><?php echo $u->name(); ?></a> on
             <span class="date"><?php echo $f->date("d/m/y H:i"); ?></span>
-        </h1>
+        </h3>
         <a href="/fractal?id=<?php echo $f->id(); ?>"><canvas width="800" height="600" data-formula="<?php echo htmlentities($f->formula()); ?>"></canvas></a>
         <p class="votes">Votes : <span class="vote" data-id="<?php echo $f->id();?>"><?php echo $f->votes(); ?></span></p>
 <?php if ($um->hasLoggedInUser()) { ?>
@@ -67,16 +72,19 @@ foreach ($upvoted as $f) {
 ?>
     </section>
 
+<?php } if (count($commented) > 0) { ?>
+
     <section id="commented-section">
+    <h2>Commented</h2>
 <?php
 foreach ($commented as $f) {
 ?>
     <article>
-        <h1>
+        <h3>
             <span class="title"><?php echo $f->title(); ?></span> by
             <a class="author" href="/user?id=<?php echo $u->id(); ?>"><?php echo $u->name(); ?></a> on
             <span class="date"><?php echo $f->date("d/m/y H:i"); ?></span>
-        </h1>
+        </h3>
         <a href="/fractal?id=<?php echo $f->id(); ?>"><canvas width="800" height="600" data-formula="<?php echo htmlentities($f->formula()); ?>"></canvas></a>
         <p class="votes">Votes : <span class="vote" data-id="<?php echo $f->id();?>"><?php echo $f->votes(); ?></span></p>
 <?php if ($um->hasLoggedInUser()) { ?>
@@ -90,6 +98,7 @@ foreach ($commented as $f) {
 }
 ?>
     </section>
+<?php } ?>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="view/assets/js/l-system.js"></script>
