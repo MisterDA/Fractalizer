@@ -10,12 +10,12 @@ $(document).ready(function() {
 
 
     $("#upvote").click(function(e) {
-        $.post('/fractal', {action: 'upvote', fractal: id}, function (data) {
+        $.post('/', {action: 'upvote', fractal: id}, function (data) {
             $("#vote").text(data);
         });
     });
     $("#downvote").click(function() {
-        $.post('/fractal', {action: 'downvote', fractal: id}, function(data) {
+        $.post('/', {action: 'downvote', fractal: id}, function(data) {
             $("#vote").text(data);
         });
     });

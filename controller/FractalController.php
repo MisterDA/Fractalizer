@@ -27,25 +27,8 @@ class FractalController extends Controller {
         // AJAX
         if ($this->um()->hasLoggedInUser()) {
 
-            // Votes
-            if (isset($_POST["action"]) && isset($_POST["fractal"])) {
-                $f = $this->fm()->get(new MongoId($_POST["fractal"]));
-                if ($f == NULL) exit;
-
-                if ($_POST["action"] == "upvote") {
-                    $u = $this->um()->loggedUser();
-                    $u->upvote($f);
-                    $this->um()->update($u);
-                } elseif ($_POST["action"] == "downvote") {
-                    $u = $this->um()->loggedUser();
-                    $u->downvote($f);
-                    $this->um()->update($u);
-                }
-                echo $f->votes();
-                exit;
-
             // Comment
-            } else if (isset($_POST["text"])) {
+            if (isset($_POST["text"])) {
                 $comment = new Comment(array(
                     "text" => $_POST["text"],
                     "author" => $this->um()->loggedUser()->id(),
