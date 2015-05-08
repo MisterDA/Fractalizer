@@ -5,7 +5,7 @@ $(document).ready(function() {
     var formula = JSON.parse($('<textarea/>').html(canvas.attr("data-formula")).val());
     var context = canvas[0].getContext('2d');
     var curve = new Curve(formula.axiom, formula.rules,
-        new Turtle(0, 600, 10, formula.angle, context));
+        new Turtle(0, canvas.height(), canvas.width() / 80, formula.angle, context));
     curve.draw(4);
 
 

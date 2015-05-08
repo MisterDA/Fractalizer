@@ -4,6 +4,9 @@ $(document).ready(function() {
         $(this).before('<input type="text" name="rules[]">');
     });
 
+    var canvas  = $("#myCanvas");
+    var context = canvas[0].getContext('2d');
+
     $("#drawButton").click(function (e) {
         e.preventDefault();
         curve = new Curve(
@@ -17,9 +20,7 @@ $(document).ready(function() {
                 });
                 return rules;
             })(),
-            new Turtle(
-                0, 600, 10, parseInt($("#angle").val()), $("#myCanvas")[0].getContext('2d')
-            )
+            new Turtle(0, canvas.height(), canvas.width() / 80, parseInt($("#angle").val()), context)
         );
         curve.turtle.clearContext();
         curve.draw(parseInt($("#iter").val()));
