@@ -1,5 +1,6 @@
 <?php
 
+require_once("Manager.php");
 require_once("User.php");
 
 /**
@@ -7,21 +8,14 @@ require_once("User.php");
  *
  * @package Model
  */
-class UsersManager {
-
-    /**
-     * Database
-     * @var MongoDB $_db
-     */
-    private $_db;
-
+class UsersManager extends Manager {
 
     /**
      * Create an UsersManager
      * @param MongoDB $db
      */
     public function __construct(MongoDB $db) {
-        $this->_db = $db;
+        parent::__construct($db);
     }
 
     /**
@@ -65,15 +59,6 @@ class UsersManager {
     }
 
     /**
-     * Get one user by id
-     * @param MongoId $id
-     * @return User
-     */
-    public function get(MongoId $id) {
-        return $this->findOne(array("_id" => $id));
-    }
-
-    /**
      * Find users. You can then hydrate the cursor to work on objects.
      * @param array $query
      * @return MongoCursor
@@ -93,8 +78,8 @@ class UsersManager {
     }
 
     /**
-     * Convert a MongoCursor of users to an array of Users,
-     * indexed by their MongoID
+     * Convert a MongoCursor of users to an array of User,
+     * indexed by their MongoId
      * @param MongoCursor $cursor
      * @return array
      */

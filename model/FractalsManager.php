@@ -1,5 +1,6 @@
 <?php
 
+require_once("Manager.php");
 require_once("Fractal.php");
 
 /**
@@ -7,21 +8,14 @@ require_once("Fractal.php");
  *
  * @package Model
  */
-class FractalsManager {
-
-    /**
-     * Database
-     * @var MongoDB $_db
-     */
-    private $_db;
-
+class FractalsManager extends Manager {
 
     /**
      * Create a FractalsManager
      * @param MongoDB $db
      */
     public function __construct(MongoDB $db) {
-        $this->_db = $db;
+        parent::__construct($db);
     }
 
     /**
@@ -63,15 +57,6 @@ class FractalsManager {
     }
 
     /**
-     * Get one fractal by id
-     * @param MongoId $id
-     * @return Fractal
-     */
-    public function get(MongoId $id) {
-        return $this->findOne(array("_id" => $id));
-    }
-
-    /**
      * Find fractals. You can then hydrate the cursor to work on objects.
      * @param array $query
      * @return MongoCursor
@@ -91,8 +76,8 @@ class FractalsManager {
     }
 
     /**
-     * Convert a MongoCursor of fractals to an array of Fractals,
-     * indexed by their MongoID
+     * Convert a MongoCursor of fractals to an array of Fractal,
+     * indexed by their MongoId
      * @param MongoCursor $cursor
      * @return array
      */

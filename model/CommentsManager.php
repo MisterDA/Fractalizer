@@ -1,5 +1,6 @@
 <?php
 
+require_once("Manager.php");
 require_once("Comment.php");
 
 /**
@@ -7,20 +8,14 @@ require_once("Comment.php");
  *
  * @package Model
  */
-class CommentsManager {
-
-    /**
-     * Database
-     * @var MongoDB $_db
-     */
-    private $_db;
+class CommentsManager extends Manager {
 
     /**
      * Create a CommentsManager
      * @param MongoDB $db
      */
     public function __construct(MongoDB $db) {
-        $this->_db = $db;
+        parent::__construct($db);
     }
 
     /**
@@ -42,15 +37,6 @@ class CommentsManager {
     }
 
     /**
-     * Get one comment by id
-     * @param MongoId $id
-     * @return Comment
-     */
-    public function get(MongoId $id) {
-        return $this->findOne(array("_id" => $id));
-    }
-
-    /**
      * Find comments. You can the hydrate the cursor to work on objects.
      * @param array $query
      * @return MongoCursor
@@ -69,8 +55,8 @@ class CommentsManager {
         return ($doc != NULL) ? new Comment($doc) : NULL;
     }
 
-    /** Convert a MongoCursor of comments to an array of Comments,
-     * indexed by their MongoID
+    /** Convert a MongoCursor of comments to an array of Comment,
+     * indexed by their MongoId
      * @param MongoCursor $cursor
      * @return array
      */
