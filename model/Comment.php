@@ -1,5 +1,7 @@
 <?php
 
+require_once("Entity.php");
+
 /**
  * Holds a comment
  *
@@ -8,13 +10,7 @@
  *
  * @package Model
  */
-class Comment {
-
-    /**
-     * Stores the id
-     * @var MongoId $_id
-     */
-    private $_id;
+class Comment extends Entity {
 
     /**
      * Comment text
@@ -50,48 +46,16 @@ class Comment {
     }
 
     /**
-     * Hydrate a Comment from MongoDB document
-     * @param array Document to create the comment from
-     */
-    public function hydrate($document) {
-        foreach ($document as $key => $value) {
-            $method = 'set'.ucfirst($key);
-            if (method_exists($this, $method)) {
-                $this->$method($value);
-            }
-        }
-    }
-
-    /**
      * Create MongoDB document from Comment
      * @return array MogoDB document
      */
     public function dehydrate() {
-        $a = array(
-            "text"   => $this->_text,
-            "author"  => $this->_author,
-            "fractal"   => $this->_fractal,
-            "date"    => $this->_date,
-        );
-        if ($this->_id != NULL)
-            $a["_id"] = $this->_id;
+        $a = parent::dehydrate();
+        $a["text"]    = $this->_text;
+        $a["author"]  = $this->_author;
+        $a["fractal"] = $this->_fracta;
+        $a["date"]    = $this->_date;
         return $a;
-    }
-
-    /**
-     * Get id
-     * @return MongoId
-     */
-    public function id() {
-        return $this->_id;
-    }
-
-    /**
-     * Set id
-     * @param MongoId $id
-     */
-    private function set_id(MongoId $id) {
-        $this->_id = $id;
     }
 
     /**
@@ -146,7 +110,7 @@ class Comment {
      * Set creation timestamp
      * @param integer $date Creation timestamp
      */
-    private function setDate($date) {
+    public function setDate($date) {
         if (is_int($date))
             $this->_date = $date;
     }

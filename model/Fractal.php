@@ -1,5 +1,6 @@
 <?php
 
+require_once("Entity.php");
 require_once("UsersManager.php");
 require_once("CommentsManager.php");
 
@@ -11,13 +12,7 @@ require_once("CommentsManager.php");
  *
  * @package Model
  */
-class Fractal {
-
-    /**
-     * Stores the id
-     * @var MongoId $_id
-     */
-    private $_id;
+class Fractal extends Entity {
 
     /**
      * Fractal title
@@ -59,49 +54,17 @@ class Fractal {
     }
 
     /**
-     * Hydrate a Fractal from MongoDB document
-     * @param array $document Document to create the fractal from
-     */
-    public function hydrate($document) {
-        foreach ($document as $key => $value) {
-            $method = 'set'.ucfirst($key);
-            if (method_exists($this, $method)) {
-                $this->$method($value);
-            }
-        }
-    }
-
-    /**
      * Create MongoDB document from Fractal
      * @return array MogoDB document
      */
     public function dehydrate() {
-        $a = array(
-            "title"   => $this->_title,
-            "author"  => $this->_author,
-            "votes"   => $this->_votes,
-            "date"    => $this->_date,
-            "formula" => $this->_formula
-        );
-        if ($this->_id != NULL)
-            $a["_id"] = $this->_id;
+        $a = parent::dehydrate();
+        $a["title"]   = $this->_title;
+        $a["author"]  = $this->_author;
+        $a["votes"]   = $this->_votes;
+        $a["date"]    = $this->_date;
+        $a["formula"] = $this->_formula;
         return $a;
-    }
-
-    /**
-     * Get id
-     * @return MongoId
-     */
-    public function id() {
-        return $this->_id;
-    }
-
-    /**
-     * Set id
-     * @param MongoId $id
-     */
-    private function set_id(MongoId $id) {
-        $this->_id = $id;
     }
 
     /**
@@ -133,7 +96,7 @@ class Fractal {
      * Set author
      * @param MongoId|User $author
      */
-    private function setAuthor($author) {
+    public function setAuthor($author) {
         $c = get_class($author);
         if ($c == "MongoId")
             $this->_author = $author;
@@ -165,7 +128,7 @@ class Fractal {
      * Set creation timestamp
      * @param integer $date Creation timestamp
      */
-    private function setDate($date) {
+    public function setDate($date) {
         if (is_int($date))
             $this->_date = $date;
     }
@@ -200,7 +163,7 @@ class Fractal {
      * Set votes
      * @param integer $votes
      */
-    private function setVotes($votes) {
+    public function setVotes($votes) {
         if (is_int($votes))
             $this->_votes = $votes;
     }

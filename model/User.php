@@ -1,5 +1,6 @@
 <?php
 
+require_once("Entity.php");
 require_once("FractalsManager.php");
 require_once("CommentsManager.php");
 
@@ -11,13 +12,7 @@ require_once("CommentsManager.php");
  *
  * @package Model
  */
-class User {
-
-    /**
-     * Stores the id
-     * @var MongoId $_id
-     */
-    private $_id;
+class User extends Entity {
 
     /**
      * User name
@@ -69,49 +64,17 @@ class User {
     }
 
     /**
-     * Hydrate an User from MongoDB document
-     * @param array $document Document to create the user from
-     */
-    public function hydrate(array $document) {
-        foreach ($document as $key => $value) {
-            $method = 'set'.ucfirst($key);
-            if (method_exists($this, $method)) {
-                $this->$method($value);
-            }
-        }
-    }
-
-    /**
      * Create MongoDB document from User
      * @return array MogoDB document
      */
     public function dehydrate() {
-        $a = array(
-            "name"  => $this->_name,
-            "email"     => $this->_email,
-            "password"  => $this->_password,
-            "upvoted"   => $this->_upvoted,
-            "downvoted" => $this->_downvoted
-        );
-        if ($this->_id != NULL)
-            $a["_id"] = $this->_id;
+        $a = parent::dehydrate();
+        $a["name"]      = $this->_name;
+        $a["email"]     = $this->_email;
+        $a["password"]  = $this->_password;
+        $a["upvoted"]   = $this->_upvoted;
+        $a["downvoted"] = $this->_downvoted;
         return $a;
-    }
-
-    /**
-     * Get id
-     * @return MongoId
-     */
-    public function id() {
-        return $this->_id;
-    }
-
-    /**
-     * Set id
-     * @param MongoId $id
-     */
-    private function set_id(MongoId $id) {
-        $this->_id = $id;
     }
 
     /**
@@ -241,7 +204,7 @@ class User {
      * Set up voted fractals id
      * @param array $upvoted
      */
-    private function setUpvoted($upvoted = array()) {
+    public function setUpvoted($upvoted = array()) {
         $this->_upvoted = ($upvoted != NULL) ? $upvoted : array();
     }
 
@@ -278,7 +241,7 @@ class User {
      * Set down voted fractals id
      * @param array $downvoted
      */
-    private function setDownvoted($downvoted) {
+    public function setDownvoted($downvoted) {
         $this->_downvoted = ($downvoted != NULL) ? $downvoted : array();
     }
 
