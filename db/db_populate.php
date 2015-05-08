@@ -40,6 +40,8 @@ function populateWithDocuments($users, $fractals, $comments) {
             "name"  => randstr(7),
             "email"     => randstr(7)."@".randstr(5),
             "password"  => password_hash(randstr(9), PASSWORD_DEFAULT),
+            //"password"  => crypt(randstr(9)),
+            //"password"  => randstr(9),
             "upvoted"   => array(),
             "downvoted" => array()));
     }
