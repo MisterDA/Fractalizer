@@ -43,14 +43,16 @@ class ConnectController extends Controller {
         if (isset($_POST["action"])) {
 
             if ($_POST["action"] == "register") {
+                $pwd = post_key("password");
                 $user = new User(array(
                     "name"     => post_key("name"),
                     "email"    => post_key("email"),
-                    "password" => post_key("password")
+                    "password" => $pwd
                 ));
                 $errors = $this->um()->register($user);
 
                 if ($errors == NULL) {
+                    $user->setPassword($pwd);
                     $this->um()->login($user);
                     if (isset($_SESSION["url"])) {
                         header("Location: ".$_SESSION["url"]);
