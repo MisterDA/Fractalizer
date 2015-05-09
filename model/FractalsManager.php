@@ -37,7 +37,7 @@ class FractalsManager extends Manager {
      * @param Fractal $fractal
      */
     public function remove(Fractal $fractal) {
-        $um = new UsersManager($this->$db());
+        $um = new UsersManager($this->db());
 
         foreach ($fractal->upvoters($um) as $user) {
             $user->cancelUpvote($fractal);
@@ -50,10 +50,10 @@ class FractalsManager extends Manager {
         }
 
         $cm = new CommentsManager($this->db());
-        foreach ($fractal->comments() as $comment)
+        foreach ($fractal->comments($cm) as $comment)
             $cm->remove($comment);
 
-        $this->db->fractals->remove(array("_id" => $fractal->id()));
+        $this->db()->fractals->remove(array("_id" => $fractal->id()));
     }
 
     /**

@@ -55,7 +55,7 @@ class UsersManager extends Manager {
         foreach ($user->comments($cm) as $comment)
             $cm->remove($comment);
 
-        $this->db->users->remove(array("_id" => $user->id()));
+        $this->db()->users->remove(array("_id" => $user->id()));
     }
 
     /**

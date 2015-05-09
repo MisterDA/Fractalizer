@@ -143,7 +143,7 @@ class User extends Entity {
      * @return array Array of Comment
      */
     public function comments(CommentsManager $cm) {
-        return $cm->hydrate($fm->find(array("author" => $this->id())));
+        return $cm->hydrate($cm->find(array("author" => $this->id())));
     }
 
     /**
@@ -222,7 +222,7 @@ class User extends Entity {
      * @return array Array of Fractal
      */
     public function downvotedFractals(FractalsManager $fm) {
-        return $fm->hydrate($fm->find(array("_id" => array('$in' => $this->_dowvoted))));
+        return $fm->hydrate($fm->find(array("_id" => array('$in' => $this->_downvoted))));
     }
 
     /**

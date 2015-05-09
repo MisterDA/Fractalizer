@@ -33,7 +33,7 @@ class CommentsManager extends Manager {
      * @param Comment $comment
      */
     public function remove(Comment $comment) {
-        $this->db->comments->remove(array("_id" => $fractal->id()));
+        $this->db()->comments->remove(array("_id" => $comment->id()));
     }
 
     /**
