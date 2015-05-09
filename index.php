@@ -7,9 +7,9 @@ require_once("db/db_connect.php");
 
 $controller = NULL;
 
-if ($page == "") {
+if ($page == "" || $page == "new") {
     require_once("controller/IndexController.php");
-    $controller = new IndexController($db, $uri);
+    $controller = new IndexController($db, $uri, $page);
 } elseif ($page == "connect") {
     require_once("controller/ConnectController.php");
     $controller = new ConnectController($db, $uri);

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Top</title>
+    <title><?php echo $title; ?></title>
 
     <link rel="stylesheet" href="view/assets/css/index.css">
 </head>

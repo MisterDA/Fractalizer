@@ -10,12 +10,18 @@ require_once("Controller.php");
 class IndexController extends Controller {
 
     /**
+     * @var string $_page "": index,  "new": new
+     */
+    private $_page;
+
+    /**
      * Create a Controller
      * @param MongoDB $db Database object
      * @param array $uri URI (request)
      */
-    public function __construct($db, $uri) {
+    public function __construct($db, $uri, $page = "") {
         parent::__construct($db, $uri);
+        $this->_page = $page;
     }
 
     /**
@@ -62,12 +68,28 @@ class IndexController extends Controller {
                 foreach ($fractals as $f)
                     require("view/include/fractal.php");
                 exit;
+            } elseif ($_POST["sort"] == "date") {
+                $fractals = $this->fm()->hydrate(
+                    $this->fm()->find()->skip($_POST["skip"])->limit(10));
+                $fm = $this->fm();
+                $um = $this->um();
+                $cm = $this->cm();
+                foreach ($fractals as $f)
+                    require("view/include/fractal.php");
+                exit;
             }
-
         }
 
         // Answer
-        $fractals = $this->fm()->hydrate($this->fm()->find()->sort(array("votes" => -1))->limit(10));
+        $fractals;
+        $title = "";
+        if ($this->_page == "") {
+            $fractals = $this->fm()->hydrate($this->fm()->find()->sort(array("votes" => -1))->limit(10));
+            $title = "Top";
+        } elseif ($this->_page == "new") {
+            $fractals = $this->fm()->hydrate($this->fm()->find()->limit(10));
+            $title = "New";
+        }
         $fm = $this->fm();
         $um = $this->um();
         $cm = $this->cm();
