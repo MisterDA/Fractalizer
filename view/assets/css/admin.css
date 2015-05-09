@@ -3,3 +3,9 @@ body {
     padding-top: 70px;
 }
 
+canvas {
+    display: block;
+    margin: auto;
+    margin-bottom: 15px;
+}
+

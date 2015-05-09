@@ -30,80 +30,9 @@
     </div>
 </div>
 
+<?php require_once("view/include/admin/users.php"); ?>
 
-<div class="row">
-    <section class="col-md-8" id="users">
-        <div class="page-header">
-            <h2>Users <small>Bind them</small></h2>
-        </div>
-        <table class="table table-striped table-bordered table-hover table-condensed">
-            <thead>
-                <tr>
-                    <th>id</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Password</th>
-                </tr>
-            </thead>
-            <tbody>
-<?php
-foreach ($users as $u) {
-    echo "<tr id=\"{$u->id()}\"><td>{$u->id()}</td><td>{$u->name()}</td><td>{$u->email()}</td><td>{$u->password()}</td></tr>";
-}
-?>
-
-            </tbody>
-            <tfoot>
-                <tr>
-                    <th>id</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Password</th>
-                </tr>
-            </tfoot>
-        </table>
-    </section>
-</div>
-
-
-<div class="row">
-    <section class="col-md-8" id="fractals">
-        <div class="page-header">
-            <h2>Fractals <small>Draw them</small></h2>
-        </div>
-        <table class="table table-striped table-bordered table-hover table-condensed">
-            <thead>
-                <tr>
-                    <th>id</th>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Date</th>
-                    <th>Votes</th>
-                    <th>Formula</th>
-                </tr>
-            </thead>
-            <tbody>
-<?php
-foreach ($fractals as $f) {
-    echo "<tr id=\"{$f->id()}\"><td>{$f->id()}</td><td>{$f->title()}</td><td>{$f->author()}</td><td>{$f->date('d/m/y H:i')}</td><td>{$f->votes()}</td><td>{$f->formula()}</td></tr>\n";
-}
-
-?>
-
-            </tbody>
-            <tfoot>
-                <tr>
-                    <th>id</th>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Date</th>
-                    <th>Votes</th>
-                    <th>Formula</th>
-                </tr>
-            </tfoot>
-        </table>
-    </section>
-</div>
+<?php require_once("view/include/admin/fractals.php"); ?>
 
 </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
