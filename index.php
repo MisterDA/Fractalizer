@@ -31,6 +31,9 @@ if ($page == "") {
 elseif ($page == "doc") {
     require_once("doc/index.html");
     exit;
+} elseif ($page == "db") {
+    require_once("db/db_populate.php");
+    exit;
 }
 
 else {

@@ -4,7 +4,7 @@
  * Populate the database
  */
 
-require_once("db_connect.php");
+require_once("db/db_connect.php");
 
 $users = $db->users;
 $fractals = $db->fractals;
