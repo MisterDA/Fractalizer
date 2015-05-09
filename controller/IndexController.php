@@ -52,9 +52,22 @@ class IndexController extends Controller {
                 exit;
             }
         }
+        if (isset($_POST["action"]) && isset($_POST["skip"]) && isset($_POST["sort"])) {
+            if ($_POST["sort"] == "votes") {
+                $fractals = $this->fm()->hydrate(
+                    $this->fm()->find()->sort(array("votes" => -1))->skip($_POST["skip"])->limit(10));
+                $fm = $this->fm();
+                $um = $this->um();
+                $cm = $this->cm();
+                foreach ($fractals as $f)
+                    require("view/include/fractal.php");
+                exit;
+            }
+
+        }
 
         // Answer
-        $fractals = $this->fm()->hydrate($this->fm()->find()->sort(array("_id" => -1))->limit(10));
+        $fractals = $this->fm()->hydrate($this->fm()->find()->sort(array("votes" => -1))->limit(10));
         $fm = $this->fm();
         $um = $this->um();
         $cm = $this->cm();
