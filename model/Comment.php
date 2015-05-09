@@ -53,7 +53,7 @@ class Comment extends Entity {
         $a = parent::dehydrate();
         $a["text"]    = $this->_text;
         $a["author"]  = $this->_author;
-        $a["fractal"] = $this->_fracta;
+        $a["fractal"] = $this->_fractal;
         $a["date"]    = $this->_date;
         return $a;
     }
