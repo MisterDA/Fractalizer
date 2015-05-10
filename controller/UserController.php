@@ -22,14 +22,11 @@ class UserController extends Controller {
      * Invoke the Controller
      */
     public function invoke() {
-        $_SESSION["url"] = "/user";
 
         if (!isset($_GET["id"])) {
             header("Location: /");
             exit;
         }
-
-        $_SESSION["url"] = "/user?id={$_GET["id"]}";
 
         $u = $this->um()->get(new MongoId($_GET["id"]));
 
@@ -38,6 +35,9 @@ class UserController extends Controller {
             header("Location: /");
             exit;
         }
+
+        $_SESSION["url"] = "/user?id={$_GET["id"]}";
+
 
         // Answer
         $authored = $u->authoredFractals($this->fm());

@@ -28,7 +28,6 @@ class IndexController extends Controller {
      * Invoke the Controller
      */
     public function invoke() {
-        $_SESSION["url"] = "/";
 
         // AJAX
         if ($this->um()->hasLoggedInUser()) {
@@ -79,6 +78,9 @@ class IndexController extends Controller {
                 exit;
             }
         }
+
+        $_SESSION["url"] = "/";
+
 
         // Answer
         $fractals;
