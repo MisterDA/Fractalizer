@@ -36,12 +36,12 @@ function randstr($n) {
  */
 function populateWithDocuments($users, $fractals, $comments) {
     for ($i = 0, $n = 20; $i < $n; $i++) {
+        $pwd = randstr(9);
         $users->insert(array(
             "name"  => randstr(7),
             "email"     => randstr(7)."@".randstr(5),
-            "password"  => password_hash(randstr(9), PASSWORD_DEFAULT),
-            //"password"  => crypt(randstr(9)),
-            //"password"  => randstr(9),
+            "password"  => password_hash($pwd, PASSWORD_DEFAULT),
+            //"password"  => crypt($pwd, '$2a$07'.$pwd.'$'),
             "upvoted"   => array(),
             "downvoted" => array()));
     }

@@ -135,6 +135,19 @@ class User extends Entity {
     public static function hashPassword($password) {
         if (is_string($password) && strlen($password) >= 3 && strlen($password) <= 20)
             return password_hash($password, PASSWORD_DEFAULT);
+            //return crypt($password, '$2a$07'.$password.'$');
+    }
+
+    /**
+     * Password equals
+     * @param string $password Password to check
+     * @return boolean
+     */
+    public function passwordEquals($password) {
+        return hash_equals($this->_password, $password) ||
+            password_verify($this->_password, $password);
+        //return $password == $this->_password ||
+        //    $password == crypt($password, $this->_password);
     }
 
     /**
