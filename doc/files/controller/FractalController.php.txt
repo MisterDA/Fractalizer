@@ -28,7 +28,7 @@ class FractalController extends Controller {
         if ($this->um()->hasLoggedInUser()) {
 
             // Comment
-            if (isset($_POST["text"])) {
+            if (isset($_POST["text"]) && isset($_POST["fractal"])) {
                 $comment = new Comment(array(
                     "text" => $_POST["text"],
                     "author" => $this->um()->loggedUser()->id(),
