@@ -249,5 +249,63 @@ class UsersManager extends Manager {
     public function hasLoggedInUser() {
         return isset($_SESSION["user"]);
     }
+
+    /**
+     * Initiate a password recovery process
+     *
+     * Sets lock token on user
+     * @param string $login Name or email
+     * @ignore
+     */
+    public function initPasswordRecovery($login) {
+        $user = $this->findOne(array(
+                '$or' => array(
+                    array("name"  => $login),
+                    array("email" => $login)
+                )));
+        if ($user == NULL)
+            return;
+
+        $token = array("user" => $user->id());
+        $this->db()->tokens->remove(array("user" => $user->id()));
+        $this->db()->tokens->add($token);
+
+        $url = $_SERVER['SERVER_NAME'].'/connect?token='.$token["_id"];
+        $subject = 'Fractalizer password recovery';
+
+        $message = '<html>
+  <head>
+    <title>'.$subject.'</title>
+  </head>
+  <body>
+    <h1>Fractalizer password recovery</h1>
+      <p>Hello '.$user->name().' !</p>
+      <p>You requested a password recovery. Follow this link to create a new password:
+        <a href="'.$url.'">'.$url.'</a>
+      </p>
+  </body>
+</html>
+';
+        $message = wordwrap($message, 70, "\r\n");
+
+        $headers   = array();
+        $headers[] = 'MIME-Version: 1.0';
+        $headers[] = 'Content-type: text/plain; charset=utf-8';
+        $headers[] = "From: Fractalizer <noreply@{$_SERVER['SERVER_NAME']}>";
+        $headers[] = "Subject: {$subject}";
+        $headers[] = 'X-Mailer: PHP/'.phpversion();
+
+        mail($to, $subject, $user->email(), implode("\r\n", $headers));
+    }
+
+    /**
+     * Is user locked
+     *
+     * @param User $user
+     * @ignore
+     */
+    public function isLocked(User $user) {
+        return ($this->db()->tokens->finOne(array("user" => $user->id())) != NULL);
+    }
 }
 
