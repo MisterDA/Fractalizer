@@ -4,23 +4,26 @@
  *
  * Curve does not depend on a specific context, Turtle does.
  * Define a curve this way:
- *
- * var context = $("#myCanvas")[0].getContext('2d');
- * var koch = new Curve(
- *   "F",                    // axiom
- *   {
- *       "F" : "F+F-F-F+F",  // rules
- *   },
- *   new Turtle(             // turtle
- *       0,                  // starting point coordinates
- *       600,
- *       5,                  // length
- *       90,                 // angle (degrees)
- *       context             // context
- *   )
- * );
- * koch.draw(4);
- *
+
+var canvas = $("#myCanvas");
+var formula = JSON.parse($('<textarea/>').html(canvas.attr('data-formula')).val());
+var curve = new Curve(formula, canvas);
+curve.draw();
+
+ * Example of formula:
+
+{
+    "title": "Koch",
+    "alphabet": ["F"],
+    "constants": ["+", "-"],
+    "angle": 90,
+    "iter": 2,
+    "axiom": "F",
+    "rules": {
+        "F": "F+F-F-F+F"
+    }
+}
+
  */
 
 
@@ -118,25 +121,24 @@ function Turtle(x, y, l, a, context) {
 }
 
 // Curve
-function Curve(axiom, rules, turtle) {
-    this.axiom  = axiom;
-    this.rules  = rules;
-    this.turtle = turtle;
+function Curve(formula, canvas) {
+    this.alphabet  = formula.alphabet;
+    this.constants = formula.constants;
+    this.angle     = formula.angle;
+    this.axiom     = formula.axiom;
+    this.iter      = formula.iter;
+    this.rules     = formula.rules;
 
-    this.fromJSON = function(str) {
-        var obj = $.parseJSON(str);
-        this.axiom = obj.axiom;
-        this.rules = obj.rules;
-        this.turtle.s("angle", obj.angle);
-    }
+    this.turtle = new Turtle(0, canvas[0].height, canvas[0].width / 80, formula.angle, canvas[0].getContext('2d'));
 
-    this.draw = function(n) {
-        this.turtle.context.beginPath();
+
+    this.draw = function() {
+        this.turtle.clearContext();
         this.turtle.context.moveTo(this.turtle.g("x"), this.turtle.g("y"));
-        if (n === 0)
+        if (this.iter === 0)
             this.execute(this.axiom);
         else
-            this.rec(this.axiom, n);
+            this.rec(this.axiom, this.iter);
         this.turtle.reset();
         this.turtle.context.stroke();
     }
@@ -144,18 +146,25 @@ function Curve(axiom, rules, turtle) {
     this.rec = function(v, n) {
         for (var i = 0, j = this.rules[v].length; i < j; i++) {
             var c = this.rules[v].charAt(i);
-            var isConstant = true;
-            for (var k in this.rules) {
-                if (c === k) {
-                    isConstant = false;
-                    if (n > 1)
-                        this.rec(c, n-1);
-                    else
-                        this.execute(c);
-                }
-            }
-            if (isConstant)
+
+            if ((function (constants, c) {
+                for (var k = 0, l = constants.length; k < l; k++)
+                    if (constants[k] === c)
+                        return true;
+                return false;
+            })(this.constants, c)) {
                 this.execute(c);
+            } else if ((function (alphabet, c) {
+                for (var k = 0, l = alphabet.length; k < l; k++)
+                    if (alphabet[k] === c)
+                        return true;
+                return false;
+            })(this.alphabet, c)) {
+                if (n > 1)
+                    this.rec(c, n-1);
+                else
+                    this.execute(c);
+            }
         }
     }
 

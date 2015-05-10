@@ -52,7 +52,7 @@ function populateWithDocuments($users, $fractals, $comments) {
             "author"  => "",
             "votes"    => 0,
             "date"     => time(),
-            "formula"  => '{"axiom":"F","rules":{"F":"F+F-F-F+F"},"angle":90}');
+            "formula"  => '{"alphabet":["F"],"constants":["+","-"],"angle":90,"iter":4,"axiom":"F","rules":{"F":"F+F-F-F+F"}}');
 
         $user = $users->find()->limit(-1)->skip(rand(0, $users->count() - 1))->getNext();
         $f["author"] = $user["_id"];

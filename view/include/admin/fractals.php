@@ -23,7 +23,7 @@
                     <td><?php echo $f->author(); ?></td>
                     <td><?php echo $f->date('d/m/y H:i'); ?></td>
                     <td><?php echo $f->votes(); ?></td>
-                    <td><?php echo htmlspecialchars($f->formula()); ?></td>
+                    <td><?php echo wordwrap(htmlspecialchars($f->formula()), 200, '<br>', true); ?></td>
                     <td>
                         <div class="btn-group" role="group">
 

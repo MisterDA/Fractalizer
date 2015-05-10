@@ -3,10 +3,8 @@ $(document).ready(function() {
 
     canvases.each(function() {
         var formula = JSON.parse($('<textarea/>').html($(this).attr("data-formula")).val());
-        var context = $(this)[0].getContext('2d');
-        var curve = new Curve(formula.axiom, formula.rules,
-            new Turtle(0, $(this).height(), $(this).width() / 80, formula.angle, context));
-        curve.draw(4);
+        var curve = new Curve(formula, $(this));
+        curve.draw();
     });
     $("button[data-role=upvote]").click(function(e) {
         var id = $(this).attr("data-id");

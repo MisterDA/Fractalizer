@@ -24,23 +24,28 @@ h2 {
 
 div.rules {
     text-align: left;
-
 }
 
 form {
-    height: 350px;
+    /*height: 350px;*/
     text-align: center;
 }
 
-input {
+textarea {
     display: block;
-    width: 40%;
-    margin-left: 30%;
-    border-radius: 10px;
+    margin: auto;
     margin-bottom: 10px;
-    /*margin-left: 275px;
+    outline: none !important;
+    border: 3px solid green;
+}
+
+input, button {
     display: block;
-    width: 250px;*/
+    margin: auto;
+    width: 40%;
+    border-radius: 10px;
+    display: block;
+    width: 250px;
 }
 
 input[type="submit"], button {
@@ -54,6 +59,8 @@ input[type="submit"]:hover, button:hover {
 }
 
 canvas {
+    margin: auto;
+    margin-top: 10px;
     background: white;
     border-top: ridge;
     border-left: ridge;

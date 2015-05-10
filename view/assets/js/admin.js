@@ -61,14 +61,9 @@ $(document).ready(function() {
             }
 
             var canvas = modal.find('canvas');
-
-            var context = canvas[0].getContext('2d');
-
             var formula = JSON.parse($('<textarea/>').html(canvas.attr('data-formula')).val());
-            var context = canvas[0].getContext('2d');
-            var curve = new Curve(formula.axiom, formula.rules,
-                                  new Turtle(0, canvas[0].height, canvas[0].width / 80, formula.angle, context));
-            curve.draw(4);
+            var curve = new Curve(formula, canvas);
+            curve.draw();
         });
     }
 

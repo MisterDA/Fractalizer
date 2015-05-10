@@ -39,14 +39,19 @@
         </table>
         </div>
          <form method="POST">
-            <label>Title : <input type="title"  name="title"></label>
-            <label>Iter :  <input type="number" name="iter"  id="iter"  min="0" value="0"></label>
-            <label>Axiom : <input type="text"   name="axiom" id="axiom"></label>
-            <label>Angle (deg): <input type="number" name="angle" id="angle" min="0" max="360" value="0"></label>
-            <label id="rules">
-                Rules : <input type="text" name="rules[]">
-                <button id="addRuleButton">+</button>
-            </label>
+            <textarea name="formula" id="formula" cols="50" rows="15">
+{
+    "title": "Koch",
+    "alphabet": ["F"],
+    "constants": ["+", "-"],
+    "angle": 90,
+    "iter": 4,
+    "axiom": "F",
+    "rules": {
+        "F": "F+F-F-F+F"
+    }
+}
+            </textarea>
             <button id="drawButton">Draw</button>
             <input type="submit" value="Post">
         </form>
