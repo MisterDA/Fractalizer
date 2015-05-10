@@ -120,18 +120,18 @@ class UsersManager extends Manager {
 
         if ($user->name() != NULL) {
             if ($this->findOne(array("name" => $user->name())) != NULL) {
-                array_push($errors, UsersManager::ERR_REGISTER_NAME_FOUND);
+                $errors[] = UsersManager::ERR_REGISTER_NAME_FOUND;
             }
         } else {
-            array_push($errors, UsersManager::ERR_REGISTER_NAME);
+            $errors[] = UsersManager::ERR_REGISTER_NAME;
         }
 
         if ($user->email() != NULL) {
             if ($this->findOne(array("email" => $user->email())) != NULL) {
-                array_push($errors, UsersManager::ERR_REGISTER_EMAIL_FOUND);
+                $errors[] = UsersManager::ERR_REGISTER_EMAIL_FOUND;
             }
         } else {
-            array_push($errors, UsersManager::ERR_REGISTER_EMAIL);
+            $errors[] = UsersManager::ERR_REGISTER_EMAIL;
         }
 
         if ($user->password() != NULL) {
@@ -139,7 +139,7 @@ class UsersManager extends Manager {
             if ($pwd != NULL)
                 $user->setPassword($pwd);
             else
-                array_push($errors, UsersManager::ERR_REGISTER_PASSWORD);
+                $errors[] = UsersManager::ERR_REGISTER_PASSWORD;
         }
 
         if (count($errors) == 0)

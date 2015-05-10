@@ -291,8 +291,8 @@ class User extends Entity {
             }
         }
         $fractal->upvote();
-        array_push($this->_changedVotes, $fractal);
-        array_push($this->_upvoted, $fractal->id());
+        $this->_changedVotes[] = $fractal;
+        $this->_upvoted[] = $fractal->id();
         return true;
     }
 
@@ -314,8 +314,8 @@ class User extends Entity {
             }
         }
         $fractal->downvote();
-        array_push($this->_changedVotes, $fractal);
-        array_push($this->_downvoted, $fractal->id());
+        $this->_changedVotes[] = $fractal;
+        $this->_downvoted[] = $fractal->id();
         return true;
     }
 
@@ -329,7 +329,7 @@ class User extends Entity {
         foreach ($this->_upvoted as $key => $id) {
             if ($id == $fid) {
                 unset($this->_upvoted[$key]);
-                array_push($this->_changedVotes, $fractal);
+                $this->_changedVotes = $fractal;
                 $fractal->downvote();
                 return true;
             }
@@ -347,7 +347,7 @@ class User extends Entity {
         foreach ($this->_downvoted as $key => $id) {
             if ($id == $fid) {
                 unset($this->_downvoted[$key]);
-                array_push($this->_changedVotes, $fractal);
+                $this->_changedVotes = $fractal;
                 $fractal->upvote();
                 return true;
             }
