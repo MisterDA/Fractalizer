@@ -167,13 +167,62 @@ class UsersManager extends Manager {
                 if ($user->passwordEquals($user->password(), $u->password())) {
                     $this->logout();
                     $user->hydrate($u->dehydrate());
-                    $_SESSION["user"] = $user;                }
+                    $_SESSION["user"] = $user;
+                }
             } else {
                 return array(UsersManager::ERR_LOGIN);
             }
         } else {
             return array(UsersManager::ERR_LOGIN);
         }
+    }
+
+    /**
+     * Automatically log in an user based on cookies
+     * @return boolean
+     */
+    public function autoLogin() {
+        if ($this->hasLoggedInUser())
+            return false;
+        if (isset($_COOKIE["id"]) && isset($_COOKIE["password"])) {
+            $id = $_COOKIE["id"];
+            try {
+                $id = new MongoId($id);
+            } catch (MongoException $ex) {
+                $this->disableAutoLogin();
+                return false;
+            }
+            $user = $this->get($id);
+            if ($user != NULL) {
+                if ($user->passwordEquals($user->password(), $_COOKIE["password"])) {
+                    $this->logout();
+                    $_SESSION["user"] = $user;
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Set cookies to automatically log in an user
+     * @param User $user
+     */
+    public function setAutoLogin(User $user) {
+        if (isset($_POST["auto"]) && $_POST["auto"] == "on") {
+            setcookie('id', $user->id(), time() + 365*24*3600, null, null, false, true);
+            setcookie('password', $user->password(), time() + 265*24*3600, null, null, false, true);
+        } else {
+            $this->disableAutoLogin();
+        }
+    }
+
+    /**
+     * Disable automatic log in, unset the cookies
+     */
+    public function disableAutoLogin() {
+        setcookie('id');
+        setcookie('password');
     }
 
     /**

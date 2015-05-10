@@ -54,13 +54,12 @@ class ConnectController extends Controller {
                 if ($errors == NULL) {
                     $user->setPassword($pwd);
                     $this->um()->login($user);
-                    if (isset($_SESSION["url"])) {
+                    $this->um()->setAutoLogin($user);
+                    if (isset($_SESSION["url"]))
                         header("Location: ".$_SESSION["url"]);
-                        exit;
-                    } else {
+                    else
                         header("Location: /");
-                        exit;
-                    }
+                    exit;
                 }
             } elseif ($_POST["action"] == "login") {
                 $user = new User(array(
@@ -71,6 +70,7 @@ class ConnectController extends Controller {
                 $errors = $this->um()->login($user);
 
                 if ($errors == NULL) {
+                    $this->um()->setAutoLogin($user);
                     if (isset($_SESSION["url"])) {
                         header("Location: ".$_SESSION["url"]);
                         exit;
@@ -80,6 +80,7 @@ class ConnectController extends Controller {
                     }
                 }
             } elseif ($_POST["action"] == "logout") {
+                $this->um()->disableAutoLogin();
                 unset($_SESSION["user"]);
                 unset($_SESSION["url"]);
             } elseif (isset($_SESSION["user"])) {

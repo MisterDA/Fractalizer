@@ -54,6 +54,8 @@ abstract class Controller {
         $this->_fm = new FractalsManager($db);
         $this->_um = new UsersManager($db);
         $this->_cm = new CommentsManager($db);
+
+        $this->_um->autoLogin();
     }
 
     /**

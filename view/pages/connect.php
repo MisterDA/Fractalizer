@@ -40,6 +40,7 @@ if ($printRegistrationForm) {
         <label for="name">Name: <input type="text" name="name" id="name"></label>
         <label for="email">Email: <input type="email" name="email" id="email"></label>
         <label for="reg-password">Password: <input type="password" name="password" id="reg-password"></label>
+        <label for="auto">Auto login: <input type="checkbox" name="auto" id="auto" value="on"></label>
         <input type="hidden" name="action" value="register">
         <input type="submit" value="Register">
     </form>
@@ -62,6 +63,7 @@ if ($printLoginForm) {
     <form method="POST">
         <label for="login">Name/Email: <input type="text" name="login" id="login"></label>
         <label for="log-password">Password: <input type="password" name="password" id="log-password"></label>
+        <label for="auto">Auto login: <input type="checkbox" name="auto" id="auto" value="on"></label>
         <input type="hidden" name="action" value="login">
         <input type="submit" value="Login">
     </form>
