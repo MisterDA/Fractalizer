@@ -12,7 +12,7 @@
         <tr id="<?php echo $c->id(); ?>">
             <td><?php echo $c->id(); ?></td>
             <td rowspan="2"><?php echo $c->date('d/m/y H:i'); ?></td>
-            <td rowspan="2"><?php echo htmlentities($c->text()); ?></td>
+            <td rowspan="2"><?php echo htmlspecialchars($c->text()); ?></td>
             <td rowspan="2">
                 <button type="button" class="btn btn-sm" data-remove="comment"><span class="glyphicon glyphicon-remove"></span></button>
             </td>

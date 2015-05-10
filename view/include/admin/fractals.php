@@ -19,11 +19,11 @@
 <?php foreach ($fractals as $f) { ?>
                 <tr id="<?php echo $f->id(); ?>">
                     <td><?php echo $f->id(); ?></td>
-                    <td><?php echo htmlentities($f->title()); ?></td>
+                    <td><?php echo htmlspecialchars($f->title()); ?></td>
                     <td><?php echo $f->author(); ?></td>
                     <td><?php echo $f->date('d/m/y H:i'); ?></td>
                     <td><?php echo $f->votes(); ?></td>
-                    <td><?php echo htmlentities($f->formula()); ?></td>
+                    <td><?php echo htmlspecialchars($f->formula()); ?></td>
                     <td>
                         <div class="btn-group" role="group">
 
@@ -43,10 +43,10 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="label-<?php echo $f->id(); ?>"><?php echo htmlentities($f->title()); ?> by <?php echo htmlentities($um->get($f->author())->name()); ?></h4>
+        <h4 class="modal-title" id="label-<?php echo $f->id(); ?>"><?php echo htmlspecialchars($f->title()); ?> by <?php echo htmlspecialchars($um->get($f->author())->name()); ?></h4>
       </div>
       <div class="modal-body">
-        <div><canvas width="400" height="300" data-formula="<?php echo htmlentities($f->formula()); ?>"></canvas></div>
+        <div><canvas width="400" height="300" data-formula="<?php echo htmlspecialchars($f->formula()); ?>"></canvas></div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -38,8 +38,8 @@ class FractalController extends Controller {
                 if ($this->cm()->post($comment))
                     echo json_encode(array(
                         "success" => true,
-                        "text" => htmlentities($comment->text()),
-                        "author" => htmlentities($this->um()->loggedUser()->name()),
+                        "text" => htmlspecialchars($comment->text()),
+                        "author" => htmlspecialchars($this->um()->loggedUser()->name()),
                         "date" => $comment->date('d/m/y H:i')
                     ));
                 else

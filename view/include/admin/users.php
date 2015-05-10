@@ -16,8 +16,8 @@
 <?php foreach ($users as $u) { ?>
                 <tr id="<?php echo $u->id(); ?>">
                     <td><?php echo $u->id(); ?></td>
-                    <td><?php echo htmlentities($u->name()); ?></td>
-                    <td><?php echo htmlentities($u->email()); ?></td>
+                    <td><?php echo htmlspecialchars($u->name()); ?></td>
+                    <td><?php echo htmlspecialchars($u->email()); ?></td>
                     <td>
                         <button type="button" class="btn btn-sm" data-remove="user"><span class="glyphicon glyphicon-remove"></span></button>
                     </td>

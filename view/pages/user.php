@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title><?php echo htmlentities($u->name()); ?> - Users</title>
+    <title><?php echo htmlspecialchars($u->name()); ?> - Users</title>
 
     <link rel="stylesheet" href="view/assets/css/user.css">
     <link rel="stylesheet" href="view/assets/css/menu.css">
@@ -13,7 +13,7 @@
 
 <?php require_once("view/include/menu.php"); ?>
 
-    <h1 class="user"><?php echo htmlentities($u->name()); ?></h1>
+    <h1 class="user"><?php echo htmlspecialchars($u->name()); ?></h1>
     <nav class="user">
         <ul>
             <li id="authored" role="button"><a href="#authored-section">Posted</a></li>
@@ -34,7 +34,7 @@ foreach ($authored as $f) {
             <a class="author" href="/user?id=<?php echo $u->id(); ?>"><?php echo $u->name(); ?></a> on
             <span class="date"><?php echo $f->date("d/m/y H:i"); ?></span>
         </h3>
-        <a href="/fractal?id=<?php echo $f->id(); ?>"><canvas width="800" height="600" data-formula="<?php echo htmlentities($f->formula()); ?>"></canvas></a>
+        <a href="/fractal?id=<?php echo $f->id(); ?>"><canvas width="800" height="600" data-formula="<?php echo htmlspecialchars($f->formula()); ?>"></canvas></a>
         <p class="votes">Votes : <span class="vote" data-id="<?php echo $f->id();?>"><?php echo $f->votes(); ?></span></p>
 <?php if ($um->hasLoggedInUser()) { ?>
         <button<?php if ($um->loggedUser()->hasUpvoted($f)) echo ' class="upvoted"'; ?> data-id="<?php echo $f->id(); ?>" data-role="upvote">Upvote</button>
@@ -60,7 +60,7 @@ foreach ($upvoted as $f) {
         echo "<tr>\n";
 ?>
                 <td><a href="/fractal?id=<?php echo $f->id(); ?>">
-                    <canvas width="200" height="200" title="<?php echo htmlentities($f->title()); ?>" data-formula="<?php echo htmlentities($f->formula()); ?>"></canvas>
+                    <canvas width="200" height="200" title="<?php echo htmlspecialchars($f->title()); ?>" data-formula="<?php echo htmlspecialchars($f->formula()); ?>"></canvas>
                 </a></td>
 <?php
     $i++;
@@ -84,7 +84,7 @@ foreach ($commented as $f) {
         echo "<tr>\n";
 ?>
                 <td><a href="/fractal?id=<?php echo $f->id(); ?>">
-                    <canvas width="200" height="200" title="<?php echo htmlentities($f->title()); ?>" data-formula="<?php echo htmlentities($f->formula()); ?>"></canvas>
+                    <canvas width="200" height="200" title="<?php echo htmlspecialchars($f->title()); ?>" data-formula="<?php echo htmlspecialchars($f->formula()); ?>"></canvas>
                 </a></td>
 <?php
     $i++;

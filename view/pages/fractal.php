@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title><?php echo htmlentities($f->title()); ?> - Fractals</title>
+    <title><?php echo htmlspecialchars($f->title()); ?> - Fractals</title>
 
     <link rel="stylesheet" href="view/assets/css/fractal.css">
     <link rel="stylesheet" href="view/assets/css/menu.css">
@@ -14,19 +14,19 @@
 <?php require_once("view/include/menu.php"); ?>
 
 <section>
-<h1 class="title"><?php echo htmlentities($f->title()); ?></h1>
-<h2>Created by <span class="author"><?php echo htmlentities($um->get($f->author())->name()); ?></span> on <span class="date"><?php echo $f->date('d/m/y H:i'); ?></span></h2>
+<h1 class="title"><?php echo htmlspecialchars($f->title()); ?></h1>
+<h2>Created by <span class="author"><?php echo htmlspecialchars($um->get($f->author())->name()); ?></span> on <span class="date"><?php echo $f->date('d/m/y H:i'); ?></span></h2>
 
-    <canvas id="canvas" width="800" height="600" data-id="<?php echo $f->id(); ?>" data-formula="<?php echo htmlentities($f->formula()); ?>">Canvas is not supported !</canvas>
+    <canvas id="canvas" width="800" height="600" data-id="<?php echo $f->id(); ?>" data-formula="<?php echo htmlspecialchars($f->formula()); ?>">Canvas is not supported !</canvas>
 
 <?php $formula = json_decode($f->formula(), true); ?>
 
 <!-- TODO: complete this
     <aside>
-        <pre><?php echo htmlentities($f->formula()); ?></pre>
+        <pre><?php echo htmlspecialchars($f->formula()); ?></pre>
         <form action="fractalize.php" method="POST">
-            <input type="hidden" name="title" value="<?php echo htmlentities($f->title()); ?>">
-            <input type="hidden" name="axiom" value="<?php echo htmlentities($formula["axiom"]); ?>">
+            <input type="hidden" name="title" value="<?php echo htmlspecialchars($f->title()); ?>">
+            <input type="hidden" name="axiom" value="<?php echo htmlspecialchars($formula["axiom"]); ?>">
             <input type="submit" value="Start from here">
         </form>
     </aside>
@@ -47,8 +47,8 @@
 foreach ($f->comments($cm) as $c) {
 ?>
         <div class="comment">
-            <h3><span class="author"><?php echo htmlentities($um->get($c->author())->name()); ?></span> on <span class="date"><?php echo $c->date('d/m/y H:i'); ?></span></h3>
-            <p class="text"><?php echo htmlentities($c->text()); ?></p>
+            <h3><span class="author"><?php echo htmlspecialchars($um->get($c->author())->name()); ?></span> on <span class="date"><?php echo $c->date('d/m/y H:i'); ?></span></h3>
+            <p class="text"><?php echo htmlspecialchars($c->text()); ?></p>
         </div>
 <?php
 }
@@ -57,7 +57,7 @@ if ($um->hasLoggedInUser()) {
     echo '<form>';
     if (isset($_SESSION["text"])) {
         echo '<textarea name="text">';
-        echo htmlentities($_SESSION["text"]);
+        echo htmlspecialchars($_SESSION["text"]);
         echo '</textarea>';
         unset($_SESSION["text"]);
     } else {

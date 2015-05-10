@@ -7,7 +7,7 @@
     </p>
     <p class="right">
 <?php if ($um->hasLoggedInUser()) { ?>
-        <a href="/user?id=<?php echo $um->loggedUser()->id() ?>">Profile</a>
+        <a href="/user?id=<?php echo $um->loggedUser()->id() ?>"><?php echo htmlspecialchars($um->loggedUser()->name()); ?></a>
         <a href="/connect">Log Out</a>
 <?php } else { ?>
         <a href="/connect">Log In</a>
