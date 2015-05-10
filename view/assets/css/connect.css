@@ -1,4 +1,63 @@
+body {
+    background-image: url("../img/wall.jpg");
+    padding-top: 50px;
+}
+
+section {
+    margin-top: 50px;
+}
+
+form {
+    display: block;
+    background: #E6E6E6;
+    border: solid;
+    border-radius: 15px;
+    padding: 5%;
+    width: 39%;
+    height: 350px;
+    text-align: center;
+    font-family: Georgia;
+}
+
+h2.form_title {
+    text-transform: uppercase;
+    text-decoration: underline;
+    font-family: "Trebuchet MS";
+}
+
+input {
+    display: block;
+    width: 40%;
+    margin-left: 30%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+input[type="submit"]{
+    background-color: #9EA1A8;
+    text-transform: uppercase;
+}
+
+input[type="submit"]:hover {
+    border-style: inset;
+    background-color: #787A80;
+}
+
+.register {
+    float: left;
+}
+
+.log_in {
+    float: right;
+}
+
+label {
+    display: block;
+    text-align: center;
+}
+
 .error-container {
 }
 .errors {
 }
+

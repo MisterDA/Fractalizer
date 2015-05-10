@@ -1,0 +1,116 @@
+body {
+    background-image: url("../img/wall.jpg");
+}
+
+section {
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 0;
+    width: 100%;
+}
+
+article {
+    margin-left: auto;
+    margin-right: auto;
+    border: solid;
+    width: 800px;
+    height: 800px;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 5%;
+    margin-bottom: 10px;
+    background: #E6E6E6;
+    border-radius: 15px;
+}
+
+li {
+    display: inline;
+    text-transform: uppercase;
+    text-decoration: underline;
+    margin: 10px;
+}
+h1.user {
+    margin-top: 50px;
+    text-align: center;
+    background: #E6E6E6;
+    border-style: solid;
+    border-radius: 15px;
+}
+
+nav.user {
+    text-align: center;
+    background: #E6E6E6;
+    border: solid;
+    margin-top: 50px;
+    border-radius: 15px;
+    width: 30%;
+    margin-left: 35%;
+    padding-right: 20px;
+}
+
+nav.user a, nav.user a:visited {
+    color: black;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 50px;
+    text-align: center;
+    background: #E6E6E6;
+    border-style: solid;
+    border-radius: 15px;
+}
+
+h3 {
+    text-align: left;
+    font-size: 20px;
+    font-family: Georgia;
+}
+
+h3 a {
+    color: black;
+}
+
+h3 a:visited {
+    color: black;
+}
+
+span.title {
+    display: block;
+    font-size: 50px;
+}
+
+a.fract {
+    color: #B85C00;
+}
+
+a:visited.fract {
+    color: #B85C00;
+}
+
+canvas {
+    background: white;
+    border-top: ridge;
+    border-left: ridge;
+    border-right: groove;
+    border-bottom: groove;
+    border-color: #000000;
+    border-width: 5px;
+}
+
+p.votes {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Arial Black";
+}
+
+input {
+    margin-left: 275px;
+    display: block;
+    width: 250px;
+}
+
+table {
+    bottom: 0px;
+}
+

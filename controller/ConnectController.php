@@ -95,6 +95,9 @@ class ConnectController extends Controller {
         }
 
         // Answer
+        $fm = $this->fm();
+        $um = $this->um();
+        $cm = $this->cm();
         require_once("view/pages/connect.php");
     }
 }

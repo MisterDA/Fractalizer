@@ -1,10 +1,71 @@
-label {
-    display: block;
+body {
+    background-image: url("../img/wall.jpg");
 }
-#rules input {
-    display: block;
+
+section {
+    margin-top: 50px;
+    z-index: 0;
+    margin-left: 15%;
+    border: solid;
+    width: 60%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 5%;
+    margin-bottom: 10px;
+    background: #E6E6E6;
+    border-radius: 15px;
+    font-family: Georgia;
 }
-#rules input:nth-last-child(2), #addRuleButton {
-    display: inline;
+
+h2 {
+    text-align: center;
+    text-transform: uppercase
+}
+
+div.rules {
+    text-align: left;
+
+}
+
+form {
+    height: 350px;
+    text-align: center;
+}
+
+input {
+    display: block;
+    width: 40%;
+    margin-left: 30%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    /*margin-left: 275px;
+    display: block;
+    width: 250px;*/
+}
+
+input[type="submit"], button {
+    background-color: #9EA1A8;
+    text-transform: uppercase;
+}
+
+input[type="submit"]:hover, button:hover {
+    border-style: inset;
+    background-color: #787A80;
+}
+
+canvas {
+    background: white;
+    border-top: ridge;
+    border-left: ridge;
+    border-right: groove;
+    border-bottom: groove;
+    border-color: #000000;
+    border-width: 5px;
+}
+
+p.votes {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Arial Black";
 }
 

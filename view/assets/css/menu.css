@@ -1,0 +1,72 @@
+nav.menu {
+	width: 100%;
+	border-bottom: 3px solid black;
+	background: #ACACC8;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	height: 40px;
+	z-index : 999;
+}
+
+nav.menu p {
+	top: -6px;
+	position: fixed;
+	display: inline;
+
+}
+
+nav.menu a {
+	text-transform: uppercase;
+	font-size: 15px;
+	border-style: outset;
+	border-color: #ABBEDE;
+	background: #78819C;
+	color: black;
+	text-decoration: none;
+	padding: 1px;
+
+
+
+}
+
+nav.menu a:visited {
+	color: black;
+}
+
+nav.menu a:hover{
+	border-style: inset;
+} 
+
+nav.menu .left {
+	float: left;
+	text-align: left;
+	margin-left: 10px;
+}
+
+
+nav.menu .right {
+	float: right;
+	text-align: left;
+	right: 5px;
+	margin-right: 10px;
+}
+
+nav.menu h1 {
+	margin-top: 0px;
+	margin-left: 45%;
+}
+nav.menu h1 a {
+
+	font-family: "Comic Sans MS";
+	font-size: 25px;
+	text-align: center;
+	display: inline;
+	color: black;
+	border-style: none;
+	background: none;
+}
+
+nav.menu h1 a:hover {
+	border-style: none;
+}

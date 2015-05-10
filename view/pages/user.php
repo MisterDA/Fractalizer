@@ -6,16 +6,19 @@
     <title><?php echo htmlentities($u->name()); ?> - Users</title>
 
     <link rel="stylesheet" href="view/assets/css/user.css">
+    <link rel="stylesheet" href="view/assets/css/menu.css">
 </head>
 
 <body>
 
-    <h1><?php echo htmlentities($u->name()); ?></h1>
-    <nav>
+<?php require_once("view/include/menu.php"); ?>
+
+    <h1 class="user"><?php echo htmlentities($u->name()); ?></h1>
+    <nav class="user">
         <ul>
-            <li id="authored" role="button">Posted</li>
-            <li id="upvoted" role="button">Upvoted</li>
-            <li id="commented" role="button">Commented</li>
+            <li id="authored" role="button"><a href="#authored-section">Posted</a></li>
+            <li id="upvoted" role="button"><a href="#upvoted-section">Upvoted</a></li>
+            <li id="commented" role="button"><a href="#commented-section">Commented</a></li>
         </ul>
     </nav>
 

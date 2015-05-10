@@ -6,13 +6,15 @@
     <title><?php echo htmlentities($f->title()); ?> - Fractals</title>
 
     <link rel="stylesheet" href="view/assets/css/fractal.css">
+    <link rel="stylesheet" href="view/assets/css/menu.css">
 </head>
 
 <body>
 
-<?php /*die(gettype($f).var_dump($f));*/ ?>
+<?php require_once("view/include/menu.php"); ?>
 
-<h1><?php echo htmlentities($f->title()); ?></h1>
+<section>
+<h1 class="title"><?php echo htmlentities($f->title()); ?></h1>
 <h2>Created by <span class="author"><?php echo htmlentities($um->get($f->author())->name()); ?></span> on <span class="date"><?php echo $f->date('d/m/y H:i'); ?></span></h2>
 
     <canvas id="canvas" width="800" height="600" data-id="<?php echo $f->id(); ?>" data-formula="<?php echo htmlentities($f->formula()); ?>">Canvas is not supported !</canvas>
@@ -38,6 +40,7 @@
 <?php } else { ?>
     <form action="/connect"><input type="submit" value="Upvote"><input type="submit" value="Downvote"></form>
 <?php } ?>
+    </section>
 
     <section id="comments">
 <?php
