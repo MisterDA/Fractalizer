@@ -19,19 +19,6 @@
 
     <canvas id="canvas" width="800" height="600" data-id="<?php echo $f->id(); ?>" data-formula="<?php echo htmlspecialchars($f->formula()); ?>">Canvas is not supported !</canvas>
 
-<?php $formula = json_decode($f->formula(), true); ?>
-
-<!-- TODO: complete this
-    <aside>
-        <pre><?php echo htmlspecialchars($f->formula()); ?></pre>
-        <form action="fractalize.php" method="POST">
-            <input type="hidden" name="title" value="<?php echo htmlspecialchars($f->title()); ?>">
-            <input type="hidden" name="axiom" value="<?php echo htmlspecialchars($formula["axiom"]); ?>">
-            <input type="submit" value="Start from here">
-        </form>
-    </aside>
--->
-
 <p class="votes">Votes : <span id="vote"><?php echo $f->votes(); ?></span></p>
 
 <?php if ($um->hasLoggedInUser()) { ?>
