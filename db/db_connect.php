@@ -12,5 +12,5 @@ $m = new MongoClient($url);
 /**
  * @var MongoDB The database object
  */
-$db = $m->{DBUSER};
+$db = $m->{DBNAME};
 
