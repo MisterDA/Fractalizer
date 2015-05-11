@@ -15,139 +15,139 @@
 </g>
 <!-- \\Entity -->
 <g id="node1" class="node"><title>\\Entity</title>
-<polygon fill="none" stroke="black" points="100,-592 16,-592 16,-556 100,-556 100,-592"/>
-<text text-anchor="start" x="24" y="-577.2" font-family="Courier,monospace" font-size="11.00">«abstract»</text>
-<text text-anchor="start" x="37.5" y="-565.2" font-family="Courier,monospace" font-size="11.00">Entity</text>
-</g>
-<!-- \\Fractal -->
-<g id="node2" class="node"><title>\\Fractal</title>
-<polygon fill="none" stroke="black" points="280,-646 216,-646 216,-610 280,-610 280,-646"/>
-<text text-anchor="middle" x="248" y="-625.2" font-family="Courier,monospace" font-size="11.00">Fractal</text>
-</g>
-<!-- \\Fractal&#45;&gt;\\Entity -->
-<g id="edge1" class="edge"><title>\\Fractal&#45;&gt;\\Entity</title>
-<path fill="none" stroke="black" d="M215.956,-619.083C187.194,-610.822 143.88,-598.381 110.035,-588.659"/>
-<polygon fill="none" stroke="black" points="110.89,-585.263 100.312,-585.866 108.957,-591.991 110.89,-585.263"/>
-</g>
-<!-- \\Manager -->
-<g id="node3" class="node"><title>\\Manager</title>
 <polygon fill="none" stroke="black" points="100,-430 16,-430 16,-394 100,-394 100,-430"/>
 <text text-anchor="start" x="24" y="-415.2" font-family="Courier,monospace" font-size="11.00">«abstract»</text>
-<text text-anchor="start" x="34" y="-403.2" font-family="Courier,monospace" font-size="11.00">Manager</text>
+<text text-anchor="start" x="37.5" y="-403.2" font-family="Courier,monospace" font-size="11.00">Entity</text>
+</g>
+<!-- \\Manager -->
+<g id="node2" class="node"><title>\\Manager</title>
+<polygon fill="none" stroke="black" points="100,-592 16,-592 16,-556 100,-556 100,-592"/>
+<text text-anchor="start" x="24" y="-577.2" font-family="Courier,monospace" font-size="11.00">«abstract»</text>
+<text text-anchor="start" x="34" y="-565.2" font-family="Courier,monospace" font-size="11.00">Manager</text>
 </g>
 <!-- \\Comment -->
-<g id="node4" class="node"><title>\\Comment</title>
-<polygon fill="none" stroke="black" points="280,-592 216,-592 216,-556 280,-556 280,-592"/>
-<text text-anchor="middle" x="248" y="-571.2" font-family="Courier,monospace" font-size="11.00">Comment</text>
+<g id="node3" class="node"><title>\\Comment</title>
+<polygon fill="none" stroke="black" points="280,-484 216,-484 216,-448 280,-448 280,-484"/>
+<text text-anchor="middle" x="248" y="-463.2" font-family="Courier,monospace" font-size="11.00">Comment</text>
 </g>
 <!-- \\Comment&#45;&gt;\\Entity -->
-<g id="edge2" class="edge"><title>\\Comment&#45;&gt;\\Entity</title>
-<path fill="none" stroke="black" d="M215.956,-574C187.318,-574 144.252,-574 110.471,-574"/>
-<polygon fill="none" stroke="black" points="110.312,-570.5 100.312,-574 110.312,-577.5 110.312,-570.5"/>
+<g id="edge1" class="edge"><title>\\Comment&#45;&gt;\\Entity</title>
+<path fill="none" stroke="black" d="M215.956,-457.083C187.194,-448.822 143.88,-436.381 110.035,-426.659"/>
+<polygon fill="none" stroke="black" points="110.89,-423.263 100.312,-423.866 108.957,-429.991 110.89,-423.263"/>
 </g>
 <!-- \\CommentsManager -->
-<g id="node5" class="node"><title>\\CommentsManager</title>
-<polygon fill="none" stroke="black" points="307,-484 189,-484 189,-448 307,-448 307,-484"/>
-<text text-anchor="middle" x="248" y="-463.2" font-family="Courier,monospace" font-size="11.00">CommentsManager</text>
+<g id="node4" class="node"><title>\\CommentsManager</title>
+<polygon fill="none" stroke="black" points="307,-646 189,-646 189,-610 307,-610 307,-646"/>
+<text text-anchor="middle" x="248" y="-625.2" font-family="Courier,monospace" font-size="11.00">CommentsManager</text>
 </g>
 <!-- \\CommentsManager&#45;&gt;\\Manager -->
-<g id="edge3" class="edge"><title>\\CommentsManager&#45;&gt;\\Manager</title>
-<path fill="none" stroke="black" d="M188.803,-449.284C163.591,-442.042 134.34,-433.64 109.995,-426.647"/>
-<polygon fill="none" stroke="black" points="110.812,-423.241 100.235,-423.844 108.88,-429.969 110.812,-423.241"/>
+<g id="edge2" class="edge"><title>\\CommentsManager&#45;&gt;\\Manager</title>
+<path fill="none" stroke="black" d="M188.803,-611.284C163.591,-604.042 134.34,-595.64 109.995,-588.647"/>
+<polygon fill="none" stroke="black" points="110.812,-585.241 100.235,-585.844 108.88,-591.969 110.812,-585.241"/>
 </g>
 <!-- \\FractalsManager -->
-<g id="node6" class="node"><title>\\FractalsManager</title>
-<polygon fill="none" stroke="black" points="307,-430 189,-430 189,-394 307,-394 307,-430"/>
-<text text-anchor="middle" x="248" y="-409.2" font-family="Courier,monospace" font-size="11.00">FractalsManager</text>
+<g id="node5" class="node"><title>\\FractalsManager</title>
+<polygon fill="none" stroke="black" points="307,-592 189,-592 189,-556 307,-556 307,-592"/>
+<text text-anchor="middle" x="248" y="-571.2" font-family="Courier,monospace" font-size="11.00">FractalsManager</text>
 </g>
 <!-- \\FractalsManager&#45;&gt;\\Manager -->
-<g id="edge4" class="edge"><title>\\FractalsManager&#45;&gt;\\Manager</title>
-<path fill="none" stroke="black" d="M188.803,-412C163.704,-412 134.6,-412 110.32,-412"/>
-<polygon fill="none" stroke="black" points="110.235,-408.5 100.235,-412 110.235,-415.5 110.235,-408.5"/>
+<g id="edge3" class="edge"><title>\\FractalsManager&#45;&gt;\\Manager</title>
+<path fill="none" stroke="black" d="M188.803,-574C163.704,-574 134.6,-574 110.32,-574"/>
+<polygon fill="none" stroke="black" points="110.235,-570.5 100.235,-574 110.235,-577.5 110.235,-570.5"/>
 </g>
-<!-- \\User -->
-<g id="node7" class="node"><title>\\User</title>
-<polygon fill="none" stroke="black" points="275,-538 221,-538 221,-502 275,-502 275,-538"/>
-<text text-anchor="middle" x="248" y="-517.2" font-family="Courier,monospace" font-size="11.00">User</text>
+<!-- \\Fractal -->
+<g id="node6" class="node"><title>\\Fractal</title>
+<polygon fill="none" stroke="black" points="280,-430 216,-430 216,-394 280,-394 280,-430"/>
+<text text-anchor="middle" x="248" y="-409.2" font-family="Courier,monospace" font-size="11.00">Fractal</text>
 </g>
-<!-- \\User&#45;&gt;\\Entity -->
-<g id="edge5" class="edge"><title>\\User&#45;&gt;\\Entity</title>
-<path fill="none" stroke="black" d="M220.859,-527.508C192.27,-535.72 145.75,-549.083 109.902,-559.379"/>
-<polygon fill="none" stroke="black" points="108.743,-556.071 100.098,-562.195 110.675,-562.799 108.743,-556.071"/>
+<!-- \\Fractal&#45;&gt;\\Entity -->
+<g id="edge4" class="edge"><title>\\Fractal&#45;&gt;\\Entity</title>
+<path fill="none" stroke="black" d="M215.956,-412C187.318,-412 144.252,-412 110.471,-412"/>
+<polygon fill="none" stroke="black" points="110.312,-408.5 100.312,-412 110.312,-415.5 110.312,-408.5"/>
 </g>
 <!-- \\UsersManager -->
-<g id="node8" class="node"><title>\\UsersManager</title>
-<polygon fill="none" stroke="black" points="297,-376 199,-376 199,-340 297,-340 297,-376"/>
-<text text-anchor="middle" x="248" y="-355.2" font-family="Courier,monospace" font-size="11.00">UsersManager</text>
+<g id="node7" class="node"><title>\\UsersManager</title>
+<polygon fill="none" stroke="black" points="297,-538 199,-538 199,-502 297,-502 297,-538"/>
+<text text-anchor="middle" x="248" y="-517.2" font-family="Courier,monospace" font-size="11.00">UsersManager</text>
 </g>
 <!-- \\UsersManager&#45;&gt;\\Manager -->
-<g id="edge6" class="edge"><title>\\UsersManager&#45;&gt;\\Manager</title>
-<path fill="none" stroke="black" d="M198.585,-371.906C171.455,-379.699 137.639,-389.412 110.086,-397.326"/>
-<polygon fill="none" stroke="black" points="108.888,-394.029 100.243,-400.154 110.821,-400.757 108.888,-394.029"/>
+<g id="edge5" class="edge"><title>\\UsersManager&#45;&gt;\\Manager</title>
+<path fill="none" stroke="black" d="M198.585,-533.906C171.455,-541.699 137.639,-551.412 110.086,-559.326"/>
+<polygon fill="none" stroke="black" points="108.888,-556.029 100.243,-562.154 110.821,-562.757 108.888,-556.029"/>
 </g>
-<!-- \\FractalizeController -->
-<g id="node9" class="node"><title>\\FractalizeController</title>
-<polygon fill="none" stroke="black" points="324,-322 172,-322 172,-286 324,-286 324,-322"/>
-<text text-anchor="middle" x="248" y="-301.2" font-family="Courier,monospace" font-size="11.00">FractalizeController</text>
+<!-- \\User -->
+<g id="node8" class="node"><title>\\User</title>
+<polygon fill="none" stroke="black" points="275,-376 221,-376 221,-340 275,-340 275,-376"/>
+<text text-anchor="middle" x="248" y="-355.2" font-family="Courier,monospace" font-size="11.00">User</text>
+</g>
+<!-- \\User&#45;&gt;\\Entity -->
+<g id="edge6" class="edge"><title>\\User&#45;&gt;\\Entity</title>
+<path fill="none" stroke="black" d="M220.859,-365.508C192.27,-373.72 145.75,-387.083 109.902,-397.379"/>
+<polygon fill="none" stroke="black" points="108.743,-394.071 100.098,-400.195 110.675,-400.799 108.743,-394.071"/>
+</g>
+<!-- \\AdminController -->
+<g id="node9" class="node"><title>\\AdminController</title>
+<polygon fill="none" stroke="black" points="307,-322 189,-322 189,-286 307,-286 307,-322"/>
+<text text-anchor="middle" x="248" y="-301.2" font-family="Courier,monospace" font-size="11.00">AdminController</text>
 </g>
 <!-- \\Controller -->
-<g id="node14" class="node"><title>\\Controller</title>
+<g id="node10" class="node"><title>\\Controller</title>
 <polygon fill="none" stroke="black" points="100,-187 16,-187 16,-151 100,-151 100,-187"/>
 <text text-anchor="start" x="24" y="-172.2" font-family="Courier,monospace" font-size="11.00">«abstract»</text>
 <text text-anchor="start" x="24" y="-160.2" font-family="Courier,monospace" font-size="11.00">Controller</text>
 </g>
-<!-- \\FractalizeController&#45;&gt;\\Controller -->
-<g id="edge7" class="edge"><title>\\FractalizeController&#45;&gt;\\Controller</title>
+<!-- \\AdminController&#45;&gt;\\Controller -->
+<g id="edge7" class="edge"><title>\\AdminController&#45;&gt;\\Controller</title>
 <path fill="none" stroke="black" d="M188.93,-285.888C183.047,-283.236 177.295,-280.277 172,-277 135.719,-254.547 101.379,-218.936 80.2817,-194.799"/>
 <polygon fill="none" stroke="black" points="82.825,-192.388 73.6509,-187.089 77.5177,-196.953 82.825,-192.388"/>
 </g>
-<!-- \\UserController -->
-<g id="node10" class="node"><title>\\UserController</title>
-<polygon fill="none" stroke="black" points="303.5,-268 192.5,-268 192.5,-232 303.5,-232 303.5,-268"/>
-<text text-anchor="middle" x="248" y="-247.2" font-family="Courier,monospace" font-size="11.00">UserController</text>
+<!-- \\FractalController -->
+<g id="node11" class="node"><title>\\FractalController</title>
+<polygon fill="none" stroke="black" points="313.5,-268 182.5,-268 182.5,-232 313.5,-232 313.5,-268"/>
+<text text-anchor="middle" x="248" y="-247.2" font-family="Courier,monospace" font-size="11.00">FractalController</text>
 </g>
-<!-- \\UserController&#45;&gt;\\Controller -->
-<g id="edge8" class="edge"><title>\\UserController&#45;&gt;\\Controller</title>
+<!-- \\FractalController&#45;&gt;\\Controller -->
+<g id="edge8" class="edge"><title>\\FractalController&#45;&gt;\\Controller</title>
 <path fill="none" stroke="black" d="M194.694,-231.931C187.034,-229.065 179.279,-226.04 172,-223 149.121,-213.443 124.203,-201.686 103.602,-191.584"/>
 <polygon fill="none" stroke="black" points="104.98,-188.361 94.4633,-187.073 101.881,-194.638 104.98,-188.361"/>
 </g>
-<!-- \\FractalController -->
-<g id="node11" class="node"><title>\\FractalController</title>
-<polygon fill="none" stroke="black" points="313.5,-214 182.5,-214 182.5,-178 313.5,-178 313.5,-214"/>
-<text text-anchor="middle" x="248" y="-193.2" font-family="Courier,monospace" font-size="11.00">FractalController</text>
+<!-- \\UserController -->
+<g id="node12" class="node"><title>\\UserController</title>
+<polygon fill="none" stroke="black" points="303.5,-214 192.5,-214 192.5,-178 303.5,-178 303.5,-214"/>
+<text text-anchor="middle" x="248" y="-193.2" font-family="Courier,monospace" font-size="11.00">UserController</text>
 </g>
-<!-- \\FractalController&#45;&gt;\\Controller -->
-<g id="edge9" class="edge"><title>\\FractalController&#45;&gt;\\Controller</title>
-<path fill="none" stroke="black" d="M182.301,-186.708C158.722,-183.322 132.409,-179.543 110.166,-176.348"/>
-<polygon fill="none" stroke="black" points="110.653,-172.882 100.257,-174.925 109.658,-179.811 110.653,-172.882"/>
+<!-- \\UserController&#45;&gt;\\Controller -->
+<g id="edge9" class="edge"><title>\\UserController&#45;&gt;\\Controller</title>
+<path fill="none" stroke="black" d="M192.37,-188.154C166.453,-184.432 135.661,-180.01 110.198,-176.353"/>
+<polygon fill="none" stroke="black" points="110.399,-172.846 100.003,-174.889 109.404,-179.775 110.399,-172.846"/>
 </g>
-<!-- \\IndexController -->
-<g id="node12" class="node"><title>\\IndexController</title>
-<polygon fill="none" stroke="black" points="307,-160 189,-160 189,-124 307,-124 307,-160"/>
-<text text-anchor="middle" x="248" y="-139.2" font-family="Courier,monospace" font-size="11.00">IndexController</text>
+<!-- \\FractalizeController -->
+<g id="node13" class="node"><title>\\FractalizeController</title>
+<polygon fill="none" stroke="black" points="324,-160 172,-160 172,-124 324,-124 324,-160"/>
+<text text-anchor="middle" x="248" y="-139.2" font-family="Courier,monospace" font-size="11.00">FractalizeController</text>
 </g>
-<!-- \\IndexController&#45;&gt;\\Controller -->
-<g id="edge10" class="edge"><title>\\IndexController&#45;&gt;\\Controller</title>
-<path fill="none" stroke="black" d="M188.803,-150.358C163.704,-153.963 134.6,-158.143 110.32,-161.63"/>
-<polygon fill="none" stroke="black" points="109.636,-158.192 100.235,-163.078 110.631,-165.121 109.636,-158.192"/>
+<!-- \\FractalizeController&#45;&gt;\\Controller -->
+<g id="edge10" class="edge"><title>\\FractalizeController&#45;&gt;\\Controller</title>
+<path fill="none" stroke="black" d="M171.887,-152.788C151.167,-155.763 129.17,-158.922 110.15,-161.654"/>
+<polygon fill="none" stroke="black" points="109.61,-158.196 100.209,-163.082 110.605,-165.124 109.61,-158.196"/>
 </g>
-<!-- \\AdminController -->
-<g id="node13" class="node"><title>\\AdminController</title>
-<polygon fill="none" stroke="black" points="307,-106 189,-106 189,-70 307,-70 307,-106"/>
-<text text-anchor="middle" x="248" y="-85.2" font-family="Courier,monospace" font-size="11.00">AdminController</text>
+<!-- \\ConnectController -->
+<g id="node14" class="node"><title>\\ConnectController</title>
+<polygon fill="none" stroke="black" points="313.5,-106 182.5,-106 182.5,-70 313.5,-70 313.5,-106"/>
+<text text-anchor="middle" x="248" y="-85.2" font-family="Courier,monospace" font-size="11.00">ConnectController</text>
 </g>
-<!-- \\AdminController&#45;&gt;\\Controller -->
-<g id="edge11" class="edge"><title>\\AdminController&#45;&gt;\\Controller</title>
+<!-- \\ConnectController&#45;&gt;\\Controller -->
+<g id="edge11" class="edge"><title>\\ConnectController&#45;&gt;\\Controller</title>
 <path fill="none" stroke="black" d="M194.694,-106.069C187.034,-108.935 179.279,-111.96 172,-115 149.121,-124.557 124.203,-136.314 103.602,-146.416"/>
 <polygon fill="none" stroke="black" points="101.881,-143.362 94.4633,-150.927 104.98,-149.639 101.881,-143.362"/>
 </g>
-<!-- \\ConnectController -->
-<g id="node15" class="node"><title>\\ConnectController</title>
-<polygon fill="none" stroke="black" points="313.5,-52 182.5,-52 182.5,-16 313.5,-16 313.5,-52"/>
-<text text-anchor="middle" x="248" y="-31.2" font-family="Courier,monospace" font-size="11.00">ConnectController</text>
+<!-- \\IndexController -->
+<g id="node15" class="node"><title>\\IndexController</title>
+<polygon fill="none" stroke="black" points="307,-52 189,-52 189,-16 307,-16 307,-52"/>
+<text text-anchor="middle" x="248" y="-31.2" font-family="Courier,monospace" font-size="11.00">IndexController</text>
 </g>
-<!-- \\ConnectController&#45;&gt;\\Controller -->
-<g id="edge12" class="edge"><title>\\ConnectController&#45;&gt;\\Controller</title>
+<!-- \\IndexController&#45;&gt;\\Controller -->
+<g id="edge12" class="edge"><title>\\IndexController&#45;&gt;\\Controller</title>
 <path fill="none" stroke="black" d="M188.93,-52.1117C183.047,-54.7636 177.295,-57.7229 172,-61 135.719,-83.4528 101.379,-119.064 80.2817,-143.201"/>
 <polygon fill="none" stroke="black" points="77.5177,-141.047 73.6509,-150.911 82.825,-145.612 77.5177,-141.047"/>
 </g>

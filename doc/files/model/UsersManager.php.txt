@@ -109,6 +109,7 @@ class UsersManager extends Manager {
     const ERR_REGISTER_EMAIL = 2;
     const ERR_REGISTER_EMAIL_FOUND = 3;
     const ERR_REGISTER_PASSWORD = 4;
+    const ERR_REGISTER_PASSWORD_MATCH = 5;
 
     /**
      * Register an user
@@ -120,18 +121,18 @@ class UsersManager extends Manager {
 
         if ($user->name() != NULL) {
             if ($this->findOne(array("name" => $user->name())) != NULL) {
-                array_push($errors, UsersManager::ERR_REGISTER_NAME_FOUND);
+                $errors[] = UsersManager::ERR_REGISTER_NAME_FOUND;
             }
         } else {
-            array_push($errors, UsersManager::ERR_REGISTER_NAME);
+            $errors[] = UsersManager::ERR_REGISTER_NAME;
         }
 
         if ($user->email() != NULL) {
             if ($this->findOne(array("email" => $user->email())) != NULL) {
-                array_push($errors, UsersManager::ERR_REGISTER_EMAIL_FOUND);
+                $errors[] = UsersManager::ERR_REGISTER_EMAIL_FOUND;
             }
         } else {
-            array_push($errors, UsersManager::ERR_REGISTER_EMAIL);
+            $errors[] = UsersManager::ERR_REGISTER_EMAIL;
         }
 
         if ($user->password() != NULL) {
@@ -139,7 +140,7 @@ class UsersManager extends Manager {
             if ($pwd != NULL)
                 $user->setPassword($pwd);
             else
-                array_push($errors, UsersManager::ERR_REGISTER_PASSWORD);
+                $errors[] = UsersManager::ERR_REGISTER_PASSWORD;
         }
 
         if (count($errors) == 0)
@@ -149,7 +150,7 @@ class UsersManager extends Manager {
     }
 
 
-    const ERR_LOGIN = 5;
+    const ERR_LOGIN = 6;
 
    /**
      * Log in an user, set $_SESSION["user"] to the $user object if success

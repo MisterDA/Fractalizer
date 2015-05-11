@@ -24,44 +24,43 @@ class FractalizeController extends Controller {
     public function invoke() {
         $_SESSION["url"] = "/fractalize";
 
-        // AJAX
         if ($this->um()->hasLoggedInUser()) {
-            if (isset($_POST["title"]) && isset($_POST["axiom"]) &&
-                isset($_POST["angle"]) && isset($_POST["rules"])) {
-
-                $rules = array();
-                foreach ($_POST["rules"] as $rule) {
-                    if (strlen($rule) >= 2) {
-                        $rules[substr($rule, 0, 1)] = substr($rule, 2);
-                    }
-                }
-                $formula = json_encode(array(
-                    "axiom" => $_POST["axiom"],
-                    "rules" => $rules,
-                    "angle" => $_POST["angle"]
-                ));
-
+            $formula = "";
+            if (isset($_POST["formula"]) && isset($_POST["title"])) {
                 $f = new Fractal(array(
                     "title" => $_POST["title"],
                     "author" => $this->um()->loggedUser()->id(),
                     "votes" => 0,
                     "date" => time(),
-                    "formula" => $formula
+                    "formula" => $_POST["formula"]
                 ));
 
-                // @todo Check fractal integrity
-                $this->fm()->post($f);
+                if ($this->fm()->post($f)) {
+                    header("Location: /fractal?id=".$f->id());
+                    exit;
+                }
+                $formula = $_POST["formula"];
+            }
 
-                header("Location: /fractal?id=".$f->id());
-                exit;
-            } else {
-
-                // Answer
-                $fm = $this->fm();
-                $um = $this->um();
-                $cm = $this->cm();
-                require_once("view/pages/fractalize.php");
-             }
+            // Answer
+            if (strlen($formula) == 0) {
+                $formula = '
+{
+    "alphabet": ["F"],
+    "constants": ["+", "-"],
+    "angle": 90,
+    "iter": 4,
+    "axiom": "F",
+    "rules": {
+        "F": "F+F-F-F+F"
+    }
+}
+';
+            }
+            $fm = $this->fm();
+            $um = $this->um();
+            $cm = $this->cm();
+            require_once("view/pages/fractalize.php");
         } else {
             header("Location: /connect");
             exit;

@@ -22,7 +22,6 @@ class FractalController extends Controller {
      * Invoke the Controller
      */
     public function invoke() {
-        $_SESSION["url"] = "/fractal";
 
         // AJAX
         if ($this->um()->hasLoggedInUser()) {
@@ -53,14 +52,15 @@ class FractalController extends Controller {
             exit;
         }
 
-        $_SESSION["url"] = "/fractal?id={$_GET["id"]}";
-
         $f = $this->fm()->get(new MongoId($_GET["id"]));
 
         if ($f == NULL) {
             header("Location: /");
             exit;
         }
+
+        $_SESSION["url"] = "/fractal?id={$_GET["id"]}";
+
 
         // Answer
         $fm = $this->fm();

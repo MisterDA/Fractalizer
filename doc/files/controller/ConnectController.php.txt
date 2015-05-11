@@ -44,22 +44,28 @@ class ConnectController extends Controller {
 
             if ($_POST["action"] == "register") {
                 $pwd = post_key("password");
-                $user = new User(array(
-                    "name"     => post_key("name"),
-                    "email"    => post_key("email"),
-                    "password" => $pwd
-                ));
-                $errors = $this->um()->register($user);
+                $pwd2 = post_key("password-2");
 
-                if ($errors == NULL) {
-                    $user->setPassword($pwd);
-                    $this->um()->login($user);
-                    $this->um()->setAutoLogin($user);
-                    if (isset($_SESSION["url"]))
-                        header("Location: ".$_SESSION["url"]);
-                    else
-                        header("Location: /");
-                    exit;
+                if ($pwd != $pwd2) {
+                    $errors = array(UsersManager::ERR_REGISTER_PASSWORD_MATCH);
+                } else {
+                    $user = new User(array(
+                        "name"     => post_key("name"),
+                        "email"    => post_key("email"),
+                        "password" => $pwd
+                    ));
+                    $errors = $this->um()->register($user);
+
+                    if ($errors == NULL) {
+                        $user->setPassword($pwd);
+                        $this->um()->login($user);
+                        $this->um()->setAutoLogin($user);
+                        if (isset($_SESSION["url"]))
+                            header("Location: ".$_SESSION["url"]);
+                        else
+                            header("Location: /");
+                        exit;
+                    }
                 }
             } elseif ($_POST["action"] == "login") {
                 $user = new User(array(
