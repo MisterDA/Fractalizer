@@ -8,6 +8,9 @@ Chaque utilisateur a également une page personnelle sur laquelle sont affichée
 et des aperçus des fractales qu’il a commenté et voté.
 Une fois inscrit, le visiteur peut poster, commenter et voter une fractale.
 
+Le code source du site est sur Github: [MisterDA/Fractalizer](https://github.com/MisterDA/Fractalizer),
+et également en ligne [fractalizer.alwaysdata.net](http://fractalizer.alwaysdata.net/) mais nous avons rencontré des soucis d’intégration avec le serveur.
+
 ## Sitemap
     /                           Fractales classées par votes
     /new                        Nouvelles fractales
