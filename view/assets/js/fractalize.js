@@ -24,6 +24,9 @@ $(document).ready(function() {
         }
         textarea.css("border", "3px solid green");
 
+        canvas.replaceWith($('<canvas id="myCanvas" width="' + canvas[0].width + '" height="' + canvas[0].height + '"></canvas>'));
+        canvas = $("#myCanvas");
+
         var curve = new Curve(formula, canvas);
         curve.draw();
     });
