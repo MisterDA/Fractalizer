@@ -55,7 +55,13 @@ $(document).ready(function() {
 
             if (action == "edit") {
                 $.post('/admin', {action: 'load', entity: 'comments', id: id}, function (data) {
-                    modal.find('div.modal-body').append(data);
+                    var body = modal.find('div.modal-body');
+                    var last = body.children().last();
+                    if (last[0].tagName === "DIV") {
+                        body.append(data);
+                    } else {
+                        last.replaceWith(data);
+                    }
                     updateCommentsButtons();
                 });
             }
