@@ -13,6 +13,7 @@
 
         <section>
         <h2>Make your Fractal</h2>
+        <p>Take a look at Wikipedia to understand how <a href="http://en.wikipedia.org/wiki/L-system">Lindenmayer system</a> work !</p>
         <div class="rules">
         <ul>
             <li>Variables are one-letter sized.</li>
