@@ -104,12 +104,20 @@ p.votes {
     font-family: "Arial Black";
 }
 
-input {
-    margin-left: 275px;
+button, input {
+    margin: auto;
+    margin-bottom: 5px;
+    border-radius: 10px;
     display: block;
     width: 250px;
+    background-color: #9EA1A8;
+    text-transform: uppercase;
 }
 
+button:hover, input:hover {
+    border-style: inset;
+    background-color: #787A80;
+}
 table {
     bottom: 0px;
 }

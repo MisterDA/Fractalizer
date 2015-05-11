@@ -3,14 +3,14 @@ body {
 }
 
 section {
+    margin: auto;
     margin-top: 50px;
     z-index: 0;
-    margin-left: 15%;
     border: solid;
-    width: 60%;
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-bottom: 5%;
+    width: 800px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 20px;
     margin-bottom: 10px;
     background: #E6E6E6;
     border-radius: 15px;
