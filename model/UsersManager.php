@@ -109,6 +109,7 @@ class UsersManager extends Manager {
     const ERR_REGISTER_EMAIL = 2;
     const ERR_REGISTER_EMAIL_FOUND = 3;
     const ERR_REGISTER_PASSWORD = 4;
+    const ERR_REGISTER_PASSWORD_MATCH = 5;
 
     /**
      * Register an user
@@ -149,7 +150,7 @@ class UsersManager extends Manager {
     }
 
 
-    const ERR_LOGIN = 5;
+    const ERR_LOGIN = 6;
 
    /**
      * Log in an user, set $_SESSION["user"] to the $user object if success
