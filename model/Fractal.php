@@ -144,11 +144,15 @@ class Fractal extends Entity {
     /**
      * Set formula
      * @param string $formula
-     * @todo Check formula's validity
      */
     public function setFormula($formula) {
-        if (is_string($formula))
-            $this->_formula = $formula;
+        if (is_string($formula)) {
+            $obj = json_decode($formula);
+            if ($obj == NULL) return;
+            if (is_array($obj->{"alphabet"}) && is_array($obj->{"constants"}) && isset($obj->{"rules"}) &&
+                is_int($obj->{"angle"}) && is_int($obj->{"iter"}) && is_string($obj->{"axiom"}))
+                $this->_formula = $formula;
+        }
     }
 
     /**

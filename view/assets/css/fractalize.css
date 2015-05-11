@@ -48,6 +48,12 @@ input, button {
     width: 250px;
 }
 
+input[type="text"] {
+    display: inline;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
 input[type="submit"], button {
     background-color: #9EA1A8;
     text-transform: uppercase;

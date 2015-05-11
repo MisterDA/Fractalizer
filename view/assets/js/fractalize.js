@@ -27,5 +27,17 @@ $(document).ready(function() {
         var curve = new Curve(formula, canvas);
         curve.draw();
     });
+
+    $("#submit").click(function (e) {
+        var formula;
+        try {
+            formula = JSON.parse(textarea.val());
+        } catch (e) {
+            textarea.css("border", "3px solid red");
+            e.preventDefault();
+            return;
+        }
+        textarea.css("border", "3px solid green");
+    })
 });
 

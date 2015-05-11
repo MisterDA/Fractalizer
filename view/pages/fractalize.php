@@ -17,6 +17,7 @@
         <ul>
             <li>Variables are one-letter sized.</li>
             <li>One rule per variable. Example where A, B are variables and +, - are constants : <code>A=A+B-</code>.</li>
+            <li>Angle in degrees.</li>
         </ul>
         <table>
             <tbody><tr>
@@ -39,21 +40,10 @@
         </table>
         </div>
          <form method="POST">
-            <textarea name="formula" id="formula" cols="50" rows="15">
-{
-    "title": "Koch",
-    "alphabet": ["F"],
-    "constants": ["+", "-"],
-    "angle": 90,
-    "iter": 4,
-    "axiom": "F",
-    "rules": {
-        "F": "F+F-F-F+F"
-    }
-}
-            </textarea>
+            <label for="title">Title: <input type="text" name="title" id="title"></label>
+            <textarea name="formula" id="formula" cols="50" rows="15"><?php echo htmlspecialchars($formula); ?></textarea>
             <button id="drawButton">Draw</button>
-            <input type="submit" value="Post">
+            <input  id="submit" type="submit" value="Post">
         </form>
 
         <canvas id="myCanvas" width="800" height="600">Canvas is not supported !</canvas>

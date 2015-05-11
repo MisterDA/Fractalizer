@@ -99,11 +99,15 @@ class FractalsManager extends Manager {
 
     /**
      * Post a fractal
-     * @todo Check fractal integrity
      * @param Fractal $fractal
+     * @return boolean true if success
      */
     public function post(Fractal $fractal) {
-        $this->add($fractal);
+        if ($fractal->title() != NULL && $fractal->author() != NULL && $fractal->formula() != NULL) {
+            $this->add($fractal);
+            return true;
+        }
+        return false;
     }
 }
 
