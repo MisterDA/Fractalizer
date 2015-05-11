@@ -276,47 +276,21 @@ class User extends Entity {
     /**
      * Up vote a Fractal
      * @param Fractal Fractal to up vote
-     * @return bool true if not already up voted
      */
     public function upvote(Fractal $fractal) {
-        $fid = $fractal->id();
-        foreach ($this->_upvoted as $id)
-            if ($id == $fid)
-                return false;
-        foreach ($this->_downvoted as $key => $id) {
-            if ($id == $fid) {
-                unset($this->_downvoted[$key]);
-                $fractal->upvote();
-                break;
-            }
-        }
         $fractal->upvote();
         $this->_changedVotes[] = $fractal;
         $this->_upvoted[] = $fractal->id();
-        return true;
     }
 
     /**
      * Down vote a Fractal
      * @param Fractal Fractal to down vote
-     * @return bool true if not already down voted
      */
     public function downvote(Fractal $fractal) {
-        $fid = $fractal->id();
-        foreach ($this->_downvoted as $id)
-            if ($id == $fid)
-                return false;
-        foreach ($this->_upvoted as $key => $id) {
-            if ($id == $fid) {
-                unset($this->_upvoted[$key]);
-                $fractal->downvote();
-                break;
-            }
-        }
         $fractal->downvote();
         $this->_changedVotes[] = $fractal;
         $this->_downvoted[] = $fractal->id();
-        return true;
     }
 
     /**
@@ -329,7 +303,7 @@ class User extends Entity {
         foreach ($this->_upvoted as $key => $id) {
             if ($id == $fid) {
                 unset($this->_upvoted[$key]);
-                $this->_changedVotes = $fractal;
+                $this->_changedVotes[] = $fractal;
                 $fractal->downvote();
                 return true;
             }
@@ -347,7 +321,7 @@ class User extends Entity {
         foreach ($this->_downvoted as $key => $id) {
             if ($id == $fid) {
                 unset($this->_downvoted[$key]);
-                $this->_changedVotes = $fractal;
+                $this->_changedVotes[] = $fractal;
                 $fractal->upvote();
                 return true;
             }
